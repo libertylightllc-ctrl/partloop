@@ -9,14 +9,14 @@ import { HeroCommand } from "@/components/hero-command";
 import { searchMarketplaceProducts } from "@/lib/repositories/products";
 
 const categories = [
-  { label: "Engines", ar: "محركات", icon: "EN", query: "engines", tone: "blue", count: "4,820 parts" },
-  { label: "Lighting", ar: "إضاءة", icon: "LT", query: "lights", tone: "amber", count: "3,140 parts" },
-  { label: "Body & Exterior", ar: "الهيكل الخارجي", icon: "BD", query: "body", tone: "mint", count: "5,760 parts" },
-  { label: "Transmission", ar: "ناقل الحركة", icon: "TR", query: "transmission", tone: "purple", count: "2,380 parts" },
-  { label: "Suspension", ar: "نظام التعليق", icon: "SU", query: "suspension", tone: "slate", count: "2,940 parts" },
-  { label: "Wheels & Tyres", ar: "العجلات والإطارات", icon: "WH", query: "wheels", tone: "red", count: "1,860 parts" },
-  { label: "Electrical & Electronics", ar: "الكهرباء والإلكترونيات", icon: "EL", query: "electrical", tone: "teal", count: "2,720 parts" },
-  { label: "Brakes", ar: "الفرامل", icon: "BR", query: "brakes", tone: "orange", count: "1,980 parts" },
+  { label: "Engines", ar: "محركات", query: "engines", count: "4,820 parts", image: "/categories/engines.webp", description: "High-performance engine components.", descriptionAr: "مكونات محركات عالية الأداء." },
+  { label: "Lighting", ar: "إضاءة", query: "lights", count: "3,140 parts", image: "/categories/lighting.webp", description: "Advanced lighting for maximum visibility.", descriptionAr: "إضاءة متقدمة لرؤية أوضح." },
+  { label: "Body & Exterior", ar: "الهيكل الخارجي", query: "body", count: "5,760 parts", image: "/categories/body-exterior.webp", description: "Premium body parts and exterior upgrades.", descriptionAr: "قطع هيكل وترقيات خارجية مميزة." },
+  { label: "Transmission", ar: "ناقل الحركة", query: "transmission", count: "2,380 parts", image: "/categories/transmission.webp", description: "Precision transmission and drivetrain parts.", descriptionAr: "قطع دقيقة لناقل الحركة ومجموعة الدفع." },
+  { label: "Suspension", ar: "نظام التعليق", query: "suspension", count: "2,940 parts", image: "/categories/suspension.webp", description: "Ride comfort, handling and suspension systems.", descriptionAr: "أنظمة الراحة والتحكم والتعليق." },
+  { label: "Wheels & Tyres", ar: "العجلات والإطارات", query: "wheels", count: "1,860 parts", image: "/categories/wheels-tyres.webp", description: "Performance wheels and premium tyres.", descriptionAr: "عجلات أداء وإطارات مميزة." },
+  { label: "Electrical & Electronics", ar: "الكهرباء والإلكترونيات", query: "electrical", count: "2,720 parts", image: "/categories/electrical-electronics.webp", description: "Advanced electronics and control systems.", descriptionAr: "إلكترونيات وأنظمة تحكم متقدمة." },
+  { label: "Brakes", ar: "الفرامل", query: "brakes", count: "1,980 parts", image: "/categories/brakes.webp", description: "Stopping power and brake components.", descriptionAr: "قوة توقف ومكونات فرامل موثوقة." },
 ];
 
 export default async function Home() {
@@ -105,10 +105,15 @@ export default async function Home() {
         </div>
         <div className="category-grid">
           {categories.map((category) => (
-            <Link href={`/search?category=${category.query}`} key={category.label} className={`category-card tone-${category.tone}`}>
-              <span>{category.icon}</span>
-              <strong>{ar ? category.ar : category.label}</strong>
-              <small>{ar ? "استكشف القطع" : category.count} <b>→</b></small>
+            <Link href={`/search?category=${category.query}`} key={category.label} className="category-card">
+              <img className="category-card-media" src={category.image} alt="" loading="lazy" />
+              <span className="category-card-shine" aria-hidden="true" />
+              <div className="category-card-copy">
+                <strong>{ar ? category.ar : category.label}</strong>
+                <small>{ar ? "استكشف القطع" : category.count} <b>→</b></small>
+                <p>{ar ? category.descriptionAr : category.description}</p>
+              </div>
+              <span className="category-card-arrow" aria-hidden="true">↗</span>
             </Link>
           ))}
         </div>
