@@ -1384,11 +1384,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   box-shadow: 0 32px 80px rgba(0,0,0,.36), inset 0 0 0 1px rgba(255,255,255,.02);
 }
 .premium-hero > img {
-  width: 119%;
+  width: 150%;
   height: 100%;
-  object-position: 78% center;
-  transform: translateX(-5%);
+  object-position: 100% center;
+  transform: translateX(-33.4%);
 }
+[dir="rtl"] .premium-hero > img { transform: translateX(33.4%) scaleX(-1); }
 .visual-command-head {
   position: absolute;
   z-index: 4;
@@ -1707,10 +1708,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
     margin-top: 23px;
   }
   .premium-hero > img {
-    width: 143%;
-    object-position: 82% center;
-    transform: translateX(-18%);
+    width: 158%;
+    object-position: 100% center;
+    transform: translateX(-36.8%);
   }
+  [dir="rtl"] .premium-hero > img { transform: translateX(36.8%) scaleX(-1); }
   .scan-main { top: 14%; width: 155px; }
   .scan-fit { top: 15%; max-width: 170px; }
   .market-pulse { display: none; }
