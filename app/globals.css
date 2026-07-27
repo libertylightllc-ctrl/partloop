@@ -1158,9 +1158,31 @@ blockquote { margin: 0; padding: 16px; border-inline-start: 3px solid var(--prim
   font-size: 10px;
   font-weight: 850;
 }
+.fitment-badges { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 7px; }
+.vehicle-flow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: -3px 0 18px 56px;
+  color: #8a98a6;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.vehicle-flow span {
+  padding: 6px 9px;
+  border: 1px solid #dbe3e8;
+  border-radius: 999px;
+  background: #f7f9fa;
+}
+.vehicle-flow span.active { border-color: #9fd9cc; background: #effaf7; color: var(--primary-dark); }
+.vehicle-flow span.complete { border-color: var(--primary); background: var(--primary); color: white; }
+.vehicle-flow i { color: #a8b4bd; font-size: 15px; font-style: normal; }
 .vehicle-finder-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
 .vehicle-field { display: flex; flex-direction: column; gap: 6px; }
 .vehicle-field > span { color: #43566b; font-size: 10px; font-weight: 850; letter-spacing: .03em; }
+.vehicle-field > span small { color: var(--primary-dark); font-size: 9px; }
 .vehicle-field select, .vehicle-field input {
   width: 100%;
   min-width: 0;
@@ -1179,6 +1201,28 @@ blockquote { margin: 0; padding: 16px; border-inline-start: 3px solid var(--prim
   box-shadow: 0 0 0 3px rgba(0,167,137,.11);
 }
 .vehicle-field select:disabled { cursor: not-allowed; color: #98a5b0; background: #f0f3f5; }
+.vehicle-field-emphasis input { border-color: #9fd9cc; background: #f2fbf8; }
+.vehicle-variant-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.vehicle-catalogue-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f6f9fa;
+  color: var(--muted);
+  font-size: 9px;
+}
+.vehicle-catalogue-status strong { color: var(--navy); }
+.vehicle-catalogue-status span { margin-inline-start: auto; text-align: end; }
 .vehicle-advanced {
   margin-top: 14px;
   border-top: 1px solid var(--line);
@@ -1223,10 +1267,21 @@ blockquote { margin: 0; padding: 16px; border-inline-start: 3px solid var(--prim
   .vehicle-step { width: 37px; height: 37px; border-radius: 11px; }
   .vehicle-finder-heading h2, .vehicle-finder-compact .vehicle-finder-heading h2 { font-size: 22px; }
   .vehicle-finder-heading p { font-size: 11px; }
-  .fitment-promise { margin-inline-start: 47px; }
+  .fitment-badges { margin-inline-start: 47px; justify-content: flex-start; }
+  .vehicle-flow {
+    width: 100%;
+    margin: 0 0 16px;
+    padding-bottom: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .vehicle-flow::-webkit-scrollbar { display: none; }
+  .vehicle-flow span { flex: 0 0 auto; }
   .vehicle-finder-grid { grid-template-columns: 1fr; gap: 11px; }
   .vehicle-field select, .vehicle-field input { height: 50px; font-size: 14px; }
-  .vehicle-advanced > div { grid-template-columns: 1fr; }
+  .vehicle-advanced > div, .vehicle-variant-row { grid-template-columns: 1fr; }
+  .vehicle-catalogue-status { align-items: flex-start; flex-direction: column; }
+  .vehicle-catalogue-status span { margin-inline-start: 0; text-align: start; }
   .vehicle-finder-actions { align-items: stretch; flex-direction: column; }
   .vehicle-finder-actions .button { width: 100%; min-width: 0; min-height: 50px; }
 }
