@@ -26,7 +26,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <section className="product-detail-grid">
         <div className="product-gallery">
           <ProductVisual visual={product.visual} imageUrl={product.imageUrl} alt={product.imageAlt} priority />
-          <div className="thumbnail-row">{[1, 2, 3, 4].map((item) => <button key={item} className={item === 1 ? "active" : ""} aria-label={`View product image ${item}`}><ProductVisual visual={product.visual} compact imageUrl={product.imageUrl} alt={`${product.imageAlt}, view ${item}`} /></button>)}</div>
+          <div className="thumbnail-row">{[1, 2, 3, 4].map((item) => <button key={item} className={`${item === 1 ? "active" : ""} product-view-${item}`} aria-label={`View product image ${item}`}><ProductVisual visual={product.visual} compact imageUrl={product.imageUrl} alt={`${product.imageAlt}, view ${item}`} /></button>)}</div>
           <div className="photo-proof"><span>✓</span><div><strong>{ar ? "صور تم التحقق منها" : "Verified listing photos"}</strong><small>{ar ? "تم فحص التكرار والتلاعب" : "Checked for duplication and manipulation"}</small></div></div>
         </div>
         <div className="product-info">
@@ -35,6 +35,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <div className="rating-line"><span>★ {product.seller.rating}</span><span>{product.seller.completedOrders.toLocaleString()} {ar ? "طلب مكتمل" : "orders"}</span><span>OEM {product.oemNumber}</span></div>
           <strong className="detail-price">{formatMoney(product.price, locale)}</strong>
           <span className="vat-note">{ar ? "يشمل ضريبة القيمة المضافة عند انطباقها" : "VAT included where applicable"}</span>
+          <div className="detail-confidence">
+            <span><b>✓</b>{ar ? "صور مفحوصة" : "Photos inspected"}</span>
+            <span><b>✓</b>{ar ? "توافق مؤكد" : "Fitment verified"}</span>
+            <span><b>✓</b>{product.warrantyDays} {ar ? "يوم ضمان" : "day warranty"}</span>
+          </div>
           <div className="fitment-panel">
             <div className="fitment-top"><CompatibilityBadge status={product.compatibility} locale={locale} /><button>{ar ? "تغيير السيارة" : "Change vehicle"}</button></div>
             <strong>Toyota Land Cruiser 2021 • 4.0L V6 • GXR</strong>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import "./globals.css";
+import "./premium.css";
 import { CartProvider } from "@/components/cart-provider";
 import { Footer } from "@/components/footer";
 import { MobileNav } from "@/components/mobile-nav";
@@ -24,13 +25,13 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "PartsLoop",
       description: "The right part. Verified for your car.",
       type: "website",
-      images: [{ url: "/og.png", width: 1733, height: 907, alt: "PartsLoop auto-parts marketplace" }],
+      images: [{ url: "/og-premium.png", width: 1733, height: 907, alt: "PartsLoop — The right part. Verified." }],
     },
     twitter: {
       card: "summary_large_image",
       title: "PartsLoop",
       description: "The right part. Verified for your car.",
-      images: ["/og.png"],
+      images: ["/og-premium.png"],
     },
   };
 }

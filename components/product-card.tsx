@@ -19,6 +19,10 @@ export function ProductCard({ product, locale = "en" }: { product: Product; loca
         </div>
         <Link href={`/products/${product.slug}`} className="product-title">{title}</Link>
         <span className="product-oem">OEM {product.oemNumber}</span>
+        <div className="product-seller-line">
+          <span className="seller-mini-mark">{product.seller.name.split(" ").map((word) => word[0]).slice(0, 2).join("")}</span>
+          <span><strong>{product.seller.name}</strong><small>{product.seller.city} · {product.seller.completedOrders.toLocaleString()} orders</small></span>
+        </div>
         <strong className="product-price">{formatMoney(product.price, locale)}</strong>
         <CompatibilityBadge status={product.compatibility} locale={locale} />
         <div className="card-meta">

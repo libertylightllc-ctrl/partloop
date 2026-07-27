@@ -157,7 +157,7 @@ export function VehicleFinder({
             <p>
               {ar
                 ? "دليل سيارات الشرق الأوسط من 1960 إلى 2026، مع الموديلات مرتبة من الألف إلى الياء وخيارات المحرك والفئة."
-                : "Middle East-first coverage from 1960–2026, with manufacturer models A–Z and guided engine and variant choices."}
+                : "GCC vehicle catalogue from 1960–2026, with manufacturer models A–Z and guided engine and regional variant choices."}
             </p>
           </div>
         </div>

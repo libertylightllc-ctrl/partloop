@@ -8,14 +8,14 @@ import { VehicleFinder } from "@/components/vehicle-finder";
 import { searchMarketplaceProducts } from "@/lib/repositories/products";
 
 const categories = [
-  { label: "Engines", ar: "محركات", icon: "EN", query: "engines", tone: "blue" },
-  { label: "Lighting", ar: "إضاءة", icon: "LT", query: "lights", tone: "amber" },
-  { label: "Body & Exterior", ar: "الهيكل الخارجي", icon: "BD", query: "body", tone: "mint" },
-  { label: "Transmission", ar: "ناقل الحركة", icon: "TR", query: "transmission", tone: "purple" },
-  { label: "Suspension", ar: "نظام التعليق", icon: "SU", query: "suspension", tone: "slate" },
-  { label: "Wheels & Tyres", ar: "العجلات والإطارات", icon: "WH", query: "wheels", tone: "red" },
-  { label: "Electrical & Electronics", ar: "الكهرباء والإلكترونيات", icon: "EL", query: "electrical", tone: "teal" },
-  { label: "Brakes", ar: "الفرامل", icon: "BR", query: "brakes", tone: "orange" },
+  { label: "Engines", ar: "محركات", icon: "EN", query: "engines", tone: "blue", count: "4,820 parts" },
+  { label: "Lighting", ar: "إضاءة", icon: "LT", query: "lights", tone: "amber", count: "3,140 parts" },
+  { label: "Body & Exterior", ar: "الهيكل الخارجي", icon: "BD", query: "body", tone: "mint", count: "5,760 parts" },
+  { label: "Transmission", ar: "ناقل الحركة", icon: "TR", query: "transmission", tone: "purple", count: "2,380 parts" },
+  { label: "Suspension", ar: "نظام التعليق", icon: "SU", query: "suspension", tone: "slate", count: "2,940 parts" },
+  { label: "Wheels & Tyres", ar: "العجلات والإطارات", icon: "WH", query: "wheels", tone: "red", count: "1,860 parts" },
+  { label: "Electrical & Electronics", ar: "الكهرباء والإلكترونيات", icon: "EL", query: "electrical", tone: "teal", count: "2,720 parts" },
+  { label: "Brakes", ar: "الفرامل", icon: "BR", query: "brakes", tone: "orange", count: "1,980 parts" },
 ];
 
 export default async function Home() {
@@ -39,6 +39,11 @@ export default async function Home() {
             <Link href="/search" className="button button-primary">{ar ? "تصفح جميع القطع" : "Browse all parts"}</Link>
             <Link href="/seller/listings/new" className="text-link">{ar ? "بيع قطعة في أقل من دقيقة ←" : "Sell a part in under a minute →"}</Link>
           </div>
+          <div className="hero-confidence" aria-label="PartsLoop marketplace assurances">
+            <span><b>01</b>{ar ? "تحقق ذكي من التوافق" : "AI fitment intelligence"}</span>
+            <span><b>02</b>{ar ? "صور مفحوصة" : "Multi-angle photo proof"}</span>
+            <span><b>03</b>{ar ? "دفع محمي" : "Protected payment"}</span>
+          </div>
         </div>
         <div className="hero-visual premium-hero" aria-label="AI-assisted auto part matching">
           <img src="/og.png" alt="PartsLoop premium automotive parts selection" fetchPriority="high" />
@@ -50,6 +55,7 @@ export default async function Home() {
           </div>
           <div className="scan-card scan-fit"><span>✓</span><div><strong>{t.confirmedFit}</strong><small>Toyota Land Cruiser 2021</small></div></div>
           <div className="scan-card scan-price"><small>{ar ? "السعر المقترح" : "Suggested price"}</small><strong>AED 850–920</strong></div>
+          <div className="market-pulse"><i /><span>{ar ? "متجر مباشر" : "LIVE MARKETPLACE"}</span><strong>24,800+ {ar ? "قطعة" : "parts"}</strong></div>
           <div className="hero-orbit orbit-one" />
           <div className="hero-orbit orbit-two" />
         </div>
@@ -83,7 +89,7 @@ export default async function Home() {
             <Link href={`/search?category=${category.query}`} key={category.label} className={`category-card tone-${category.tone}`}>
               <span>{category.icon}</span>
               <strong>{ar ? category.ar : category.label}</strong>
-              <small>{ar ? "استكشف القطع" : "Explore parts"} →</small>
+              <small>{ar ? "استكشف القطع" : category.count} <b>→</b></small>
             </Link>
           ))}
         </div>
