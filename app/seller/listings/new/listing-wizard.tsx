@@ -20,6 +20,7 @@ export function ListingWizard() {
   const [loading, setLoading] = useState(false);
   const [suggestion, setSuggestion] = useState<Suggestion | null>(null);
   const [published, setPublished] = useState(false);
+  const [sellerAccepted, setSellerAccepted] = useState(false);
 
   async function analyze(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -85,8 +86,8 @@ export function ListingWizard() {
             <div><small>Compatible vehicles</small><strong>{suggestion.compatibility[0]}</strong><span>{suggestion.compatibility.slice(1).join(" • ")}</span></div>
             <div><small>Visible condition</small><strong>No cracks detected</strong><span>Two light surface marks</span></div>
           </div>
-          <label className="seller-confirm"><input type="checkbox" required defaultChecked /> I confirm the part details, defects, and compatibility information are accurate.</label>
-          <div className="wizard-actions"><button className="button button-light" onClick={() => setStep(2)}>Edit details</button><button className="button button-primary" onClick={() => { setStep(4); setPublished(true); }}>Publish listing</button></div>
+          <label className="seller-confirm"><input type="checkbox" checked={sellerAccepted} onChange={(event) => setSellerAccepted(event.target.checked)} /> I confirm the part details, defects, ownership and compatibility information are accurate, and I agree to the <Link href="/seller-terms">Seller Standards</Link>.</label>
+          <div className="wizard-actions"><button className="button button-light" onClick={() => setStep(2)}>Edit details</button><button className="button button-primary" disabled={!sellerAccepted} onClick={() => { setStep(4); setPublished(true); }}>Publish listing</button></div>
         </section>
       )}
     </div>

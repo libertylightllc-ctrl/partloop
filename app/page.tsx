@@ -27,7 +27,7 @@ export default async function Home() {
     <main>
       <section className="hero page-shell">
         <div className="hero-copy">
-          <span className="eyebrow">{ar ? "سوق قطع السيارات في الإمارات" : "THE UAE AUTO-PARTS MARKETPLACE"}</span>
+          <span className="eyebrow">{ar ? "سوق الدقة لقطع السيارات في الإمارات" : "PRECISION COMMERCE FOR THE UAE"}</span>
           <h1>{t.homeTitle}</h1>
           <p>{t.homeSubtitle}</p>
           <form action="/search" className="hero-search">
@@ -40,18 +40,18 @@ export default async function Home() {
             <Link href="/seller/listings/new" className="text-link">{ar ? "بيع قطعة في أقل من دقيقة ←" : "Sell a part in under a minute →"}</Link>
           </div>
           <div className="hero-confidence" aria-label="PartsLoop marketplace assurances">
-            <span><b>01</b>{ar ? "تحقق ذكي من التوافق" : "AI fitment intelligence"}</span>
-            <span><b>02</b>{ar ? "صور مفحوصة" : "Multi-angle photo proof"}</span>
-            <span><b>03</b>{ar ? "دفع محمي" : "Protected payment"}</span>
+            <span><b>01</b>{ar ? "توافق على مستوى المركبة" : "Vehicle-level fitment"}</span>
+            <span><b>02</b>{ar ? "إثبات OEM والحالة" : "OEM & condition proof"}</span>
+            <span><b>03</b>{ar ? "معاملة محمية" : "Protected transaction"}</span>
           </div>
         </div>
         <div className="hero-visual premium-hero" aria-label="AI-assisted auto part matching">
-          <img src="/og.png" alt="PartsLoop premium automotive parts selection" fetchPriority="high" />
+          <img src="/partsloop-precision-3d.png" alt="Precision-matched automotive components in a PartsLoop 3D composition" fetchPriority="high" />
           <div className="hero-image-shade" />
           <div className="scan-card scan-main">
             <span className="scan-grid" />
-            <strong>OEM 81150-60R30</strong>
-            <small>{ar ? "تم التعرف على المصباح" : "Headlight identified"}</small>
+            <strong>FITMENT SIGNAL</strong>
+            <small>{ar ? "تم تحديد OEM 81150-60R30" : "OEM 81150-60R30 identified"}</small>
           </div>
           <div className="scan-card scan-fit"><span>✓</span><div><strong>{t.confirmedFit}</strong><small>Toyota Land Cruiser 2021</small></div></div>
           <div className="scan-card scan-price"><small>{ar ? "السعر المقترح" : "Suggested price"}</small><strong>AED 850–920</strong></div>
@@ -68,6 +68,19 @@ export default async function Home() {
       </section>
 
       <GarageSelector vehicles={garage} locale={locale} />
+
+      <section className="page-shell precision-journey" aria-labelledby="precision-title">
+        <div className="precision-intro">
+          <span className="eyebrow">{ar ? "حلقة الدقة" : "THE PRECISION LOOP"}</span>
+          <h2 id="precision-title">{ar ? "من سيارتك إلى القطعة الصحيحة، بدون تخمين." : "From vehicle to verified part, without the guesswork."}</h2>
+          <p>{ar ? "سياق المركبة ورقم OEM وحالة القطعة ومسؤولية البائع والدفع المحمي في تدفق واحد." : "Vehicle context, OEM evidence, seller accountability and protected checkout—connected in one clear flow."}</p>
+        </div>
+        <div className="precision-steps">
+          <article><span>01</span><i>VIN</i><h3>{ar ? "حدد المركبة" : "Identify the vehicle"}</h3><p>{ar ? "اختر السنة والماركة والطراز والفئة والمحرك، أو استخدم دليل OEM وVIN." : "Select year, make, model, variant and engine—or use OEM and VIN evidence."}</p></article>
+          <article><span>02</span><i>OEM</i><h3>{ar ? "تحقق من الدليل" : "Verify the evidence"}</h3><p>{ar ? "راجع الحالة والصور ورقم القطعة والبائع المسؤول." : "Review condition, multi-angle photos, part number and the accountable seller."}</p></article>
+          <article><span>03</span><i>48H</i><h3>{ar ? "اشترِ بحماية" : "Transact with protection"}</h3><p>{ar ? "الدفع المحمي وفترة الفحص ومسار النزاع موضحة منذ البداية." : "Protected payment, a visible inspection window and a defined dispute path."}</p></article>
+        </div>
+      </section>
 
       <section className="proof-bar">
         <div className="page-shell proof-grid">
@@ -140,6 +153,20 @@ export default async function Home() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="page-shell trust-architecture">
+        <div>
+          <span className="eyebrow">{ar ? "الثقة مصممة في المنتج" : "TRUST, DESIGNED IN"}</span>
+          <h2>{ar ? "قواعد واضحة قبل أن تدفع." : "Clear rules before money changes hands."}</h2>
+          <p>{ar ? "التوافق والحالة والإرجاع ومسؤوليات البائع والخصوصية موضحة بلغة بسيطة." : "Fitment, condition, returns, seller duties and privacy are presented in plain language and backed by defined evidence."}</p>
+        </div>
+        <nav aria-label="Marketplace protections">
+          <Link href="/buyer-protection"><b>01</b><span>{ar ? "حماية المشتري" : "Buyer Protection"}<small>{ar ? "التغطية والنزاعات" : "Coverage & disputes"}</small></span><i>↗</i></Link>
+          <Link href="/returns"><b>02</b><span>{ar ? "الإرجاع والاسترداد" : "Returns & Refunds"}<small>{ar ? "العيوب وعدم المطابقة" : "Defects & misdescription"}</small></span><i>↗</i></Link>
+          <Link href="/seller-terms"><b>03</b><span>{ar ? "معايير البائع" : "Seller Standards"}<small>{ar ? "الأصالة والإفصاح" : "Authenticity & disclosure"}</small></span><i>↗</i></Link>
+          <Link href="/privacy"><b>04</b><span>{ar ? "الخصوصية" : "Privacy"}<small>{ar ? "البيانات وخياراتك" : "Data & your choices"}</small></span><i>↗</i></Link>
+        </nav>
       </section>
 
       <section className="seller-cta">

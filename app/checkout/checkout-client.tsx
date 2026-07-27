@@ -6,6 +6,7 @@ import type { Locale, Product } from "@partsloop/contracts";
 import { ProductVisual } from "@/components/product-visual";
 import { formatMoney } from "@/lib/money";
 import { useCart } from "@/components/cart-provider";
+import Link from "next/link";
 
 export function CheckoutClient({ locale, product }: { locale: Locale; product: Product }) {
   const ar = locale === "ar";
@@ -75,6 +76,10 @@ export function CheckoutClient({ locale, product }: { locale: Locale; product: P
           <div><span>{ar ? "التوصيل" : "Delivery"}</span><strong>{formatMoney({ amount: delivery, currency: "AED" }, locale)}</strong></div>
           <div><span>{ar ? "رسوم الحماية" : "Protection fee"}</span><strong>{formatMoney({ amount: serviceFee, currency: "AED" }, locale)}</strong></div>
           <div className="summary-total"><span>{ar ? "الإجمالي" : "Total"}</span><strong>{formatMoney({ amount: product.price.amount + delivery + serviceFee, currency: "AED" }, locale)}</strong></div>
+          <label className="legal-consent">
+            <input type="checkbox" name="legalConsent" required />
+            <span>{ar ? <>أوافق على <Link href="/terms">الشروط</Link> و<Link href="/returns">سياسة الإرجاع</Link> و<Link href="/buyer-protection">حماية المشتري</Link>.</> : <>I agree to the <Link href="/terms">Terms</Link>, <Link href="/returns">Returns Policy</Link> and <Link href="/buyer-protection">Buyer Protection</Link>.</>}</span>
+          </label>
           <button className="button button-primary" disabled={submitting}>{submitting ? (ar ? "جارٍ التأمين…" : "Securing payment…") : (ar ? "ادفع بأمان" : "Pay securely")}</button>
           <p className="summary-protection">🔒 {ar ? "تشفير آمن • إلغاء مجاني قبل الشحن" : "Secure checkout • Cancel before dispatch"}</p>
         </aside>

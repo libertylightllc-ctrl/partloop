@@ -22,8 +22,14 @@ export function Footer({ locale }: { locale: Locale }) {
       </div>
       <div>
         <strong>{ar ? "الأمان" : "Trust"}</strong>
-        <span>{ar ? "حماية الدفع" : "Payment protection"}</span>
-        <span>{ar ? "فحص التوافق" : "Fitment checks"}</span>
+        <Link href="/buyer-protection">{ar ? "حماية المشتري" : "Buyer protection"}</Link>
+        <Link href="/returns">{ar ? "الإرجاع والاسترداد" : "Returns & refunds"}</Link>
+        <Link href="/seller-terms">{ar ? "معايير البائع" : "Seller standards"}</Link>
+      </div>
+      <div>
+        <strong>{ar ? "القانونية" : "Legal"}</strong>
+        <Link href="/terms">{ar ? "الشروط والأحكام" : "Terms of use"}</Link>
+        <Link href="/privacy">{ar ? "سياسة الخصوصية" : "Privacy policy"}</Link>
         <Link href="/image-credits">{ar ? "مصادر الصور" : "Image credits"}</Link>
       </div>
     </footer>
