@@ -1958,6 +1958,9 @@ body {
 .breadcrumbs,
 .photo-proof,
 .rating-line { font-size: 13px; }
+.image-proof,
+.photo-proof small,
+.summary-product small { font-size: var(--type-micro); }
 .vat-note { font-size: var(--type-small); }
 .detail-confidence span { font-size: var(--type-micro); }
 .fitment-top button,
