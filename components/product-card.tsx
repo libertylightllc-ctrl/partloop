@@ -1,0 +1,31 @@
+import Link from "next/link";
+import type { Locale, Product } from "@partsloop/contracts";
+import { formatMoney } from "@/lib/money";
+import { CompatibilityBadge, GradeBadge } from "./status-badges";
+import { ProductVisual } from "./product-visual";
+
+export function ProductCard({ product, locale = "en" }: { product: Product; locale?: Locale }) {
+  const title = locale === "ar" ? product.titleAr : product.title;
+  return (
+    <article className="product-card">
+      <Link href={`/products/${product.slug}`} className="product-image-link" aria-label={title}>
+        <ProductVisual visual={product.visual} compact imageUrl={product.imageUrl} alt={product.imageAlt} />
+        <button className="wish-button" type="button" aria-label="Add to wishlist">♡</button>
+      </Link>
+      <div className="product-card-body">
+        <div className="badge-row">
+          <GradeBadge grade={product.grade} locale={locale} />
+          {product.seller.verified && <span className="verified-mini">✓ {locale === "ar" ? "موثق" : "Verified"}</span>}
+        </div>
+        <Link href={`/products/${product.slug}`} className="product-title">{title}</Link>
+        <span className="product-oem">OEM {product.oemNumber}</span>
+        <strong className="product-price">{formatMoney(product.price, locale)}</strong>
+        <CompatibilityBadge status={product.compatibility} locale={locale} />
+        <div className="card-meta">
+          <span>★ {product.seller.rating}</span>
+          <span>{product.deliveryLabel}</span>
+        </div>
+      </div>
+    </article>
+  );
+}
