@@ -40,6 +40,8 @@ export function TopNav({ locale }: { locale: Locale }) {
         <Link href="/search?category=lights">{locale === "ar" ? "إضاءة" : "Lights"}</Link>
         <Link href="/search?category=body">{locale === "ar" ? "هيكل" : "Body parts"}</Link>
         <Link href="/search?category=transmission">{locale === "ar" ? "ناقل الحركة" : "Transmission"}</Link>
+        <Link href="/search?category=suspension">{locale === "ar" ? "نظام التعليق" : "Suspension"}</Link>
+        <Link href="/search?category=electrical">{locale === "ar" ? "الكهرباء والإلكترونيات" : "Electrical & Electronics"}</Link>
         <Link href="/search?condition=used">{locale === "ar" ? "قطع مستعملة" : "Used parts"}</Link>
         <Link href="/search?condition=new">{locale === "ar" ? "قطع جديدة" : "New parts"}</Link>
         <Link href="/seller/listings/new" className="category-sell">{locale === "ar" ? "بع قطعة بالذكاء الاصطناعي" : "AI Sell a part"}</Link>

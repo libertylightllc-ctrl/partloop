@@ -7,12 +7,14 @@ import { GarageSelector } from "@/components/garage-selector";
 import { searchMarketplaceProducts } from "@/lib/repositories/products";
 
 const categories = [
-  { label: "Engines", ar: "محركات", icon: "⚙", query: "engines", tone: "blue" },
-  { label: "Lights", ar: "إضاءة", icon: "◖", query: "lights", tone: "amber" },
-  { label: "Body parts", ar: "قطع الهيكل", icon: "⌒", query: "body", tone: "mint" },
-  { label: "Transmission", ar: "ناقل الحركة", icon: "▦", query: "transmission", tone: "purple" },
-  { label: "Wheels", ar: "جنوط", icon: "◎", query: "wheels", tone: "red" },
-  { label: "Electrical", ar: "كهرباء", icon: "ϟ", query: "electrical", tone: "teal" },
+  { label: "Engines", ar: "محركات", icon: "EN", query: "engines", tone: "blue" },
+  { label: "Lighting", ar: "إضاءة", icon: "LT", query: "lights", tone: "amber" },
+  { label: "Body & Exterior", ar: "الهيكل الخارجي", icon: "BD", query: "body", tone: "mint" },
+  { label: "Transmission", ar: "ناقل الحركة", icon: "TR", query: "transmission", tone: "purple" },
+  { label: "Suspension", ar: "نظام التعليق", icon: "SU", query: "suspension", tone: "slate" },
+  { label: "Wheels & Tyres", ar: "العجلات والإطارات", icon: "WH", query: "wheels", tone: "red" },
+  { label: "Electrical & Electronics", ar: "الكهرباء والإلكترونيات", icon: "EL", query: "electrical", tone: "teal" },
+  { label: "Brakes", ar: "الفرامل", icon: "BR", query: "brakes", tone: "orange" },
 ];
 
 export default async function Home() {
