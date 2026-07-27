@@ -20,9 +20,15 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const product = await findMarketplaceProduct((await params).slug);
   if (!product) notFound();
   const related = (await searchMarketplaceProducts({ category: product.category })).filter((item) => item.id !== product.id).slice(0, 4);
+  const primaryFitment = product.compatibleVehicles[0] ?? (ar ? "المركبة غير محددة" : "Vehicle not specified");
+  const fitmentCopy = product.compatibility === "confirmed"
+    ? (ar ? "تتوافق بيانات الإعلان ورقم OEM. نوصي بتأكيد رقم الهيكل قبل الشحن." : "Listing fitment and OEM evidence align. Confirm the VIN before dispatch.")
+    : product.compatibility === "possible"
+      ? (ar ? "تتوافق فئة المركبة مبدئياً، ويلزم تأكيد رقم الهيكل قبل الشحن." : "The vehicle family aligns; VIN confirmation is required before dispatch.")
+      : (ar ? "لم يتم تأكيد التوافق. قارن رقم OEM ورقم الهيكل قبل الطلب." : "Fitment is not confirmed. Compare the OEM number and VIN before ordering.");
   return (
     <main className="page-shell product-page">
-      <nav className="breadcrumbs"><Link href="/">Home</Link><span>/</span><Link href={`/search?category=${product.category.toLowerCase()}`}>{product.category}</Link><span>/</span><span>{product.oemNumber}</span></nav>
+      <nav className="breadcrumbs"><Link href="/">{ar ? "الرئيسية" : "Home"}</Link><span>/</span><Link href={`/search?category=${product.category.toLowerCase()}`}>{product.category}</Link><span>/</span><span>{product.oemNumber}</span></nav>
       <section className="product-detail-grid">
         <div className="product-gallery">
           <ProductVisual visual={product.visual} imageUrl={product.imageUrl} alt={product.imageAlt} priority />
@@ -42,13 +48,13 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
           <div className="fitment-panel">
             <div className="fitment-top"><CompatibilityBadge status={product.compatibility} locale={locale} /><button>{ar ? "تغيير السيارة" : "Change vehicle"}</button></div>
-            <strong>Toyota Land Cruiser 2021 • 4.0L V6 • GXR</strong>
-            <p>{ar ? "تمت مطابقة رقم OEM والمحرك والطراز. نوصي بتأكيد رقم الهيكل قبل الشحن." : "OEM, engine, and model match. We still recommend confirming the VIN before dispatch."}</p>
+            <strong>{primaryFitment}</strong>
+            <p>{fitmentCopy}</p>
           </div>
           <div className="delivery-card">
             <span aria-hidden="true">⇢</span><div><strong>{product.deliveryLabel}</strong><small>{ar ? "شحن متتبع من " : "Tracked delivery from "}{product.seller.city}</small></div><b>{formatMoney({ amount: 35, currency: "AED" }, locale)}</b>
           </div>
-          <AddToCart productId={product.id} locale={locale} />
+          <AddToCart productId={product.id} locale={locale} sellerName={product.seller.name} sellerResponseMinutes={product.seller.responseMinutes} oemNumber={product.oemNumber} />
           <div className="protection-note"><span>♢</span><div><strong>{ar ? "حماية PartsLoop" : "PartsLoop Protection"}</strong><p>{ar ? "يبقى الدفع محمياً حتى التسليم وانتهاء فترة الفحص." : "Payment remains protected until delivery and the inspection window ends."}</p></div></div>
         </div>
       </section>

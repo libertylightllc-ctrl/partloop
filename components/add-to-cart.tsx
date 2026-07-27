@@ -4,7 +4,19 @@ import { FormEvent, useState } from "react";
 import Link from "next/link";
 import { useCart } from "./cart-provider";
 
-export function AddToCart({ productId, locale }: { productId: string; locale: "en" | "ar" }) {
+export function AddToCart({
+  productId,
+  locale,
+  sellerName,
+  sellerResponseMinutes,
+  oemNumber,
+}: {
+  productId: string;
+  locale: "en" | "ar";
+  sellerName: string;
+  sellerResponseMinutes: number;
+  oemNumber: string;
+}) {
   const { add } = useCart();
   const [added, setAdded] = useState(false);
   const [offerOpen, setOfferOpen] = useState(false);
@@ -67,8 +79,8 @@ export function AddToCart({ productId, locale }: { productId: string; locale: "e
 
       {chatOpen && (
         <aside className="chat-drawer" aria-label="Seller chat">
-          <div className="chat-header"><div><span className="chat-online" /><div><strong>Al Quoz Auto Parts</strong><small>{locale === "ar" ? "متصل • يرد خلال 8 دقائق" : "Online • replies in about 8 min"}</small></div></div><button onClick={() => setChatOpen(false)} aria-label="Close chat">×</button></div>
-          <div className="chat-product"><span>OEM</span><div><strong>81150-60R30</strong><small>{locale === "ar" ? "الدفع والاتصال محميان" : "Payment and contact stay protected"}</small></div></div>
+          <div className="chat-header"><div><span className="chat-online" /><div><strong>{sellerName}</strong><small>{locale === "ar" ? `متصل • يرد خلال ${sellerResponseMinutes} دقيقة` : `Online • replies in about ${sellerResponseMinutes} min`}</small></div></div><button onClick={() => setChatOpen(false)} aria-label="Close chat">×</button></div>
+          <div className="chat-product"><span>OEM</span><div><strong>{oemNumber}</strong><small>{locale === "ar" ? "الدفع والاتصال محميان" : "Payment and contact stay protected"}</small></div></div>
           <div className="chat-messages">
             <time>{locale === "ar" ? "اليوم" : "Today"}</time>
             {messages.map((message, index) => <p key={`${message.from}-${index}`} className={message.from}>{message.text}</p>)}
