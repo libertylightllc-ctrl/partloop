@@ -1878,7 +1878,7 @@ body {
 .hero-confidence span { font-size: var(--type-small); }
 .hero-confidence b { font-size: var(--type-micro); }
 .visual-command-head span,
-.visual-command-head b { font-size: 10px; }
+.visual-command-head b { font-size: var(--type-micro); }
 .scan-main strong { font-size: var(--type-micro); }
 .scan-main small,
 .scan-fit small,
@@ -1887,7 +1887,7 @@ body {
 .scan-price strong { font-size: 15px; }
 .market-pulse { font-size: var(--type-micro); }
 .market-pulse strong { font-size: var(--type-micro); }
-.fitment-matrix small { font-size: 10px; }
+.fitment-matrix small { font-size: var(--type-micro); }
 .fitment-matrix strong { font-size: 13px; }
 
 .vehicle-finder-heading h2 { font-size: 31px; }
@@ -1905,7 +1905,7 @@ body {
 .vehicle-finder-actions > div span { font-size: var(--type-small); }
 .vehicle-finder-actions .button { font-size: var(--type-ui); }
 .garage-title small { font-size: var(--type-micro); }
-.vehicle-pill > span { font-size: 10px; }
+.vehicle-pill > span { font-size: var(--type-micro); }
 .vehicle-pill small { font-size: var(--type-small); }
 .add-vehicle { font-size: 13px; }
 
@@ -1958,7 +1958,7 @@ body {
 .breadcrumbs,
 .photo-proof,
 .rating-line { font-size: 13px; }
-.image-proof,
+.product-visual .image-proof,
 .photo-proof small,
 .summary-product small { font-size: var(--type-micro); }
 .vat-note { font-size: var(--type-small); }
@@ -2107,7 +2107,7 @@ body {
   .hero-command .hero-search input { font-size: 13px; }
   .hero-command .hero-search button { font-size: var(--type-small); }
   .hero-confidence span { font-size: var(--type-micro); }
-  .fitment-matrix small { font-size: 10px; }
+  .fitment-matrix small { font-size: var(--type-micro); }
   .fitment-matrix strong { font-size: var(--type-micro); }
   .vehicle-finder-heading p { font-size: 13px; }
   .vehicle-field > span,
