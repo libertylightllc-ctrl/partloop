@@ -3,6 +3,7 @@ export interface EngineOption {
   fuel: "Petrol" | "Diesel" | "Hybrid" | "Electric";
   layout: "I3" | "I4" | "I6" | "V6" | "V8" | "Electric";
   trims: string[];
+  years?: [number, number];
 }
 
 export interface VehicleModelOption {
@@ -17,9 +18,9 @@ export const vehicleCatalog: VehicleCatalog = {
     "Land Cruiser": {
       years: [2008, 2026],
       engines: [
-        { size: "4.0L", fuel: "Petrol", layout: "V6", trims: ["EXR", "GXR", "VXR"] },
-        { size: "3.5L", fuel: "Petrol", layout: "V6", trims: ["GXR", "VXR", "GR Sport"] },
-        { size: "4.5L", fuel: "Diesel", layout: "V8", trims: ["GXR", "VXR"] },
+        { size: "4.0L", fuel: "Petrol", layout: "V6", trims: ["EXR", "GXR", "VXR"], years: [2008, 2026] },
+        { size: "3.5L", fuel: "Petrol", layout: "V6", trims: ["GXR", "VXR", "GR Sport"], years: [2022, 2026] },
+        { size: "4.5L", fuel: "Diesel", layout: "V8", trims: ["GXR", "VXR"], years: [2008, 2021] },
       ],
     },
     Prado: {

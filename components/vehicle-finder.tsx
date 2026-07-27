@@ -60,7 +60,13 @@ export function VehicleFinder({
     [curatedModels, remoteModels, initial.make, initial.model, make],
   );
   const selectedModel = make && model ? vehicleCatalog[make]?.[model] : undefined;
-  const engines = selectedModel?.engines ?? [];
+  const selectedYear = Number(year);
+  const engines = (selectedModel?.engines ?? []).filter(
+    (engine) =>
+      !engine.years ||
+      !selectedYear ||
+      (selectedYear >= engine.years[0] && selectedYear <= engine.years[1]),
+  );
   const curatedSizes = uniqueSorted(engines.map((engine) => engine.size));
   const curatedFuels = uniqueSorted(
     engines.filter((engine) => !engineSize || engine.size === engineSize).map((engine) => engine.fuel),
