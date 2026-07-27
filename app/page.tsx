@@ -5,6 +5,7 @@ import { dictionary, getLocale } from "@/lib/i18n";
 import { ProductCard } from "@/components/product-card";
 import { GarageSelector } from "@/components/garage-selector";
 import { VehicleFinder } from "@/components/vehicle-finder";
+import { HeroCommand } from "@/components/hero-command";
 import { searchMarketplaceProducts } from "@/lib/repositories/products";
 
 const categories = [
@@ -22,7 +23,7 @@ export default async function Home() {
   const locale = await getLocale();
   const t = dictionary[locale];
   const ar = locale === "ar";
-  const featuredProducts = (await searchMarketplaceProducts()).slice(0, 4);
+  const featuredProducts = (await searchMarketplaceProducts()).slice(0, 8);
   return (
     <main>
       <section className="hero page-shell">
@@ -30,11 +31,7 @@ export default async function Home() {
           <span className="eyebrow">{ar ? "سوق الدقة لقطع السيارات في الإمارات" : "PRECISION COMMERCE FOR THE UAE"}</span>
           <h1>{t.homeTitle}</h1>
           <p>{t.homeSubtitle}</p>
-          <form action="/search" className="hero-search">
-            <span aria-hidden="true">⌕</span>
-            <input name="q" placeholder={t.searchPlaceholder} aria-label={t.searchPlaceholder} />
-            <button type="submit">{ar ? "ابحث" : "Find my part"}</button>
-          </form>
+          <HeroCommand locale={locale} />
           <div className="hero-actions">
             <Link href="/search" className="button button-primary">{ar ? "تصفح جميع القطع" : "Browse all parts"}</Link>
             <Link href="/seller/listings/new" className="text-link">{ar ? "بيع قطعة في أقل من دقيقة ←" : "Sell a part in under a minute →"}</Link>
@@ -46,6 +43,10 @@ export default async function Home() {
           </div>
         </div>
         <div className="hero-visual premium-hero" aria-label="AI-assisted auto part matching">
+          <div className="visual-command-head">
+            <span><i />{ar ? "محرك التوافق مباشر" : "LIVE FITMENT ENGINE"}</span>
+            <b>PL / MATCH 8.2</b>
+          </div>
           <img src="/partsloop-precision-3d.png" alt="Precision-matched automotive components in a PartsLoop 3D composition" fetchPriority="high" />
           <div className="hero-image-shade" />
           <div className="scan-card scan-main">
@@ -56,12 +57,17 @@ export default async function Home() {
           <div className="scan-card scan-fit"><span>✓</span><div><strong>{t.confirmedFit}</strong><small>Toyota Land Cruiser 2021</small></div></div>
           <div className="scan-card scan-price"><small>{ar ? "السعر المقترح" : "Suggested price"}</small><strong>AED 850–920</strong></div>
           <div className="market-pulse"><i /><span>{ar ? "متجر مباشر" : "LIVE MARKETPLACE"}</span><strong>24,800+ {ar ? "قطعة" : "parts"}</strong></div>
+          <div className="fitment-matrix" aria-label={ar ? "أدلة التوافق" : "Fitment evidence"}>
+            <span><small>{ar ? "درجة المطابقة" : "MATCH SCORE"}</small><strong>98.7%</strong></span>
+            <span><small>{ar ? "دليل الصور" : "PHOTO PROOF"}</small><strong>{ar ? "تم الفحص" : "Inspected"}</strong></span>
+            <span><small>{ar ? "هوية البائع" : "SELLER ID"}</small><strong>{ar ? "موثق" : "Verified"}</strong></span>
+          </div>
           <div className="hero-orbit orbit-one" />
           <div className="hero-orbit orbit-two" />
         </div>
       </section>
 
-      <section className="vehicle-finder-section">
+      <section className="vehicle-finder-section" id="vehicle-fitment">
         <div className="page-shell">
           <VehicleFinder locale={locale} />
         </div>
@@ -113,7 +119,7 @@ export default async function Home() {
           <div><span className="eyebrow">{ar ? "مختارة لسيارتك" : "CURATED FOR YOUR GARAGE"}</span><h2>{ar ? "مقترحة للاند كروزر" : "Recommended for your Land Cruiser"}</h2></div>
           <Link href="/search?vehicle=land-cruiser">{ar ? "عرض كل القطع المتوافقة ←" : "See all compatible parts →"}</Link>
         </div>
-        <div className="product-grid">
+        <div className="product-grid flagship-products">
           {featuredProducts.map((product) => <ProductCard key={product.id} product={product} locale={locale} />)}
         </div>
       </section>

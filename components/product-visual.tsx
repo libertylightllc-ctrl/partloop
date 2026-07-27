@@ -8,6 +8,10 @@ const fallbackImages: Record<Product["visual"], string> = {
   gearbox: "https://upload.wikimedia.org/wikipedia/commons/5/59/Gearbox.jpg",
   wheel: "https://upload.wikimedia.org/wikipedia/commons/b/b3/Alumwheel.jpg",
   bumper: "https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1200&q=82",
+  suspension: "/partsloop-precision-3d.png",
+  electronics: "/partsloop-precision-3d.png",
+  brakes: "/partsloop-precision-3d.png",
+  turbo: "/partsloop-precision-3d.png",
 };
 
 export function ProductVisual({

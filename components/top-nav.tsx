@@ -12,8 +12,8 @@ export function TopNav({ locale }: { locale: Locale }) {
   return (
     <>
       <div className="trust-strip">
-        <span>{locale === "ar" ? "توصيل مجاني للطلبات فوق 250 د.إ" : "Free UAE delivery over AED 250"}</span>
-        <span>{locale === "ar" ? "دفع محمي • بائعون موثقون" : "Protected payments • Verified sellers"}</span>
+        <span><i />{locale === "ar" ? "توصيل مجاني للطلبات فوق 250 د.إ" : "Free UAE delivery over AED 250"}</span>
+        <span>{locale === "ar" ? "دفع محمي • بائعون موثقون • توافق خليجي" : "Protected payments • Verified sellers • GCC fitment"}</span>
       </div>
       <header className="top-nav">
         <Link href="/" className="brand" aria-label="PartsLoop home">
@@ -27,10 +27,11 @@ export function TopNav({ locale }: { locale: Locale }) {
         </form>
         <nav className="nav-actions" aria-label="Primary navigation">
           <LocaleSwitch locale={locale} />
-          <Link href="/seller">{t.sell}</Link>
-          <Link href="/orders/ord_1">{t.orders}</Link>
+          <Link href="/#vehicle-fitment" className="nav-action"><span aria-hidden="true">◇</span>{locale === "ar" ? "كراجي" : "Garage"}</Link>
+          <Link href="/seller" className="nav-action"><span aria-hidden="true">＋</span>{t.sell}</Link>
+          <Link href="/orders/ord_1" className="nav-action"><span aria-hidden="true">↗</span>{t.orders}</Link>
           <Link href="/cart" className="cart-link" aria-label={`${count} items in cart`}>
-            <span aria-hidden="true">Bag</span>
+            <span aria-hidden="true">▢</span><em>{locale === "ar" ? "السلة" : "Cart"}</em>
             {count > 0 && <strong>{count}</strong>}
           </Link>
         </nav>

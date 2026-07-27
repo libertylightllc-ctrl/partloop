@@ -58,7 +58,7 @@ export interface Product {
   seller: SellerSummary;
   deliveryLabel: string;
   warrantyDays: number;
-  visual: "headlight" | "engine" | "mirror" | "gearbox" | "wheel" | "bumper";
+  visual: "headlight" | "engine" | "mirror" | "gearbox" | "wheel" | "bumper" | "suspension" | "electronics" | "brakes" | "turbo";
   imageUrl: string;
   imageAlt: string;
   defects: string[];

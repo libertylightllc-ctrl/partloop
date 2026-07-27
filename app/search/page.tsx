@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ProductCard } from "@/components/product-card";
 import { VehicleFinder } from "@/components/vehicle-finder";
 import { getLocale } from "@/lib/i18n";
 import { products } from "@/lib/mock-data";
 import { searchMarketplaceProducts } from "@/lib/repositories/products";
+import { SearchFilters } from "@/components/search-filters";
 
 export const metadata: Metadata = { title: "Search auto parts" };
 
@@ -38,20 +38,26 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
           <h1>{q ? (ar ? `نتائج “${q}”` : `Results for “${q}”`) : vehicleLabel ? (ar ? `قطع ${vehicleLabel}` : `Parts for ${vehicleLabel}`) : (ar ? "كل قطع السيارات" : "All auto parts")}</h1>
           <p>{ar ? `${results.length} قطع متاحة من بائعين داخل الإمارات` : `${results.length} parts available from UAE sellers`}</p>
         </div>
-        <button className="button button-light filter-mobile" type="button">☷ {ar ? "تصفية" : "Filters"}</button>
       </div>
       <VehicleFinder locale={locale} initial={vehicleParams} preserve={{ q, category, condition, compatibility, verified: sellerVerified ? "1" : "" }} compact />
       <div className="search-layout">
-        <form className="filters" method="get">
-          {q && <input type="hidden" name="q" value={q} />}
-          {Object.entries(vehicleParams).map(([name, value]) => value && <input key={name} type="hidden" name={name} value={value} />)}
-          <strong>{ar ? "تصفية النتائج" : "Filter results"}</strong>
-          <label>{ar ? "الفئة" : "Category"}<select name="category" defaultValue={category}><option value="">{ar ? "كل الفئات" : "All categories"}</option><option value="lights">{ar ? "إضاءة" : "Lighting"}</option><option value="engines">{ar ? "محركات" : "Engines"}</option><option value="body">{ar ? "هيكل" : "Body & Exterior"}</option><option value="transmission">{ar ? "ناقل الحركة" : "Transmission"}</option><option value="suspension">{ar ? "نظام التعليق" : "Suspension"}</option><option value="wheels">{ar ? "جنوط" : "Wheels & Tyres"}</option><option value="electrical">{ar ? "الكهرباء والإلكترونيات" : "Electrical & Electronics"}</option><option value="brakes">{ar ? "الفرامل" : "Brakes"}</option></select></label>
-          <fieldset><legend>{ar ? "الحالة" : "Condition"}</legend>{["New", "Used", "Refurbished"].map((item) => <label className="radio-row" key={item}><input type="radio" name="condition" value={item.toLowerCase()} defaultChecked={condition === item.toLowerCase()} />{item}<span>{products.filter((p) => p.condition === item.toLowerCase()).length}</span></label>)}</fieldset>
-          <fieldset><legend>{ar ? "التوافق" : "Compatibility"}</legend><label className="radio-row"><input type="radio" name="compatibility" value="confirmed" defaultChecked={compatibility === "confirmed"} />{ar ? "توافق مؤكد فقط" : "Confirmed fit only"}<span>4</span></label><label className="radio-row"><input type="radio" name="compatibility" value="possible" defaultChecked={compatibility === "possible"} />{ar ? "توافق محتمل" : "Possible fit"}<span>1</span></label></fieldset>
-          <fieldset><legend>{ar ? "البائع" : "Seller"} </legend><label className="check-row"><input type="checkbox" name="verified" value="1" defaultChecked={sellerVerified} />{ar ? "بائع موثق" : "Verified seller"}<span>5</span></label></fieldset>
-          <div className="filter-actions"><button type="submit" className="button button-primary">{ar ? "تطبيق الفلاتر" : "Apply filters"}</button><Link href="/search" className="text-button">{ar ? "مسح" : "Clear"}</Link></div>
-        </form>
+        <SearchFilters
+          locale={locale}
+          q={q}
+          category={category}
+          condition={condition}
+          compatibility={compatibility}
+          sellerVerified={sellerVerified}
+          vehicleParams={vehicleParams}
+          counts={{
+            new: products.filter((product) => product.condition === "new").length,
+            used: products.filter((product) => product.condition === "used").length,
+            refurbished: products.filter((product) => product.condition === "refurbished").length,
+            confirmed: products.filter((product) => product.compatibility === "confirmed").length,
+            possible: products.filter((product) => product.compatibility === "possible").length,
+            verified: products.filter((product) => product.seller.verified).length,
+          }}
+        />
         <section>
           <div className="results-toolbar">
             <span>{results.length} {ar ? "نتائج" : "results"}</span>

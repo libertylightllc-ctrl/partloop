@@ -25,13 +25,13 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "PartsLoop",
       description: "The right part. Verified for your car.",
       type: "website",
-      images: [{ url: "/partsloop-precision-3d.png", width: 1733, height: 907, alt: "PartsLoop — Every part. Precisely matched." }],
+      images: [{ url: "/partsloop-social-v9.png", width: 1733, height: 907, alt: "PartsLoop — Every part. Proven to fit." }],
     },
     twitter: {
       card: "summary_large_image",
       title: "PartsLoop",
       description: "The right part. Verified for your car.",
-      images: ["/partsloop-precision-3d.png"],
+      images: ["/partsloop-social-v9.png"],
     },
   };
 }

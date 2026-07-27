@@ -62,6 +62,10 @@ const visualByCategory: Record<string, Product["visual"]> = {
   "body parts": "bumper",
   transmission: "gearbox",
   wheels: "wheel",
+  suspension: "suspension",
+  electrical: "electronics",
+  "electrical & electronics": "electronics",
+  brakes: "brakes",
 };
 
 const productSelect = "id,slug,title_en,title_ar,description_en,description_ar,oem_number,condition,grade,price_minor,currency,warranty_days,defects,categories(name_en),seller_profiles(id,display_name,city,verification_status,rating,completed_orders,stripe_account_id),product_fitments(make,model,year_from,year_to,engine,trim,status),product_images(storage_path,sort_order)";
