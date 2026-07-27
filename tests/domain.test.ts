@@ -52,3 +52,17 @@ test("catalogue repository supports OEM, fitment, verification, and price sortin
   const product = await findMarketplaceProduct("toyota-land-cruiser-led-headlight-81150-60r30");
   assert.equal(product?.oemNumber, "81150-60R30");
 });
+
+test("vehicle fitment search narrows by make, model, year, engine, fuel, layout, and trim", async () => {
+  const results = await searchMarketplaceProducts({
+    make: "Toyota",
+    model: "Land Cruiser",
+    year: "2021",
+    engineSize: "4.0L",
+    fuelType: "Petrol",
+    engineType: "V6",
+    trim: "GXR",
+  });
+  assert.equal(results.length, 1);
+  assert.equal(results[0].slug, "toyota-land-cruiser-led-headlight-81150-60r30");
+});

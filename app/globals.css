@@ -1114,3 +1114,119 @@ blockquote { margin: 0; padding: 16px; border-inline-start: 3px solid var(--prim
 .legal-card h2:first-child { margin-top: 0; }
 .legal-card li, .legal-card p { color: var(--muted); }
 .legal-card a { color: var(--primary-dark); font-weight: 800; }
+
+.vehicle-finder-section { padding: 0 0 28px; }
+.vehicle-finder {
+  padding: 28px;
+  border: 1px solid #d7e3e5;
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 95% 0, rgba(0,167,137,.11), transparent 31%),
+    white;
+  box-shadow: 0 22px 55px rgba(16,36,62,.09);
+}
+.search-page > .vehicle-finder { margin-bottom: 28px; }
+.vehicle-finder-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 22px;
+}
+.vehicle-finder-heading > div { display: flex; align-items: flex-start; gap: 14px; }
+.vehicle-step {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--navy);
+  color: white;
+  font-size: 12px;
+  font-weight: 900;
+}
+.vehicle-finder-heading h2 { margin: 5px 0 7px; font-size: 27px; }
+.vehicle-finder-heading p { max-width: 720px; margin: 0; color: var(--muted); font-size: 13px; }
+.fitment-promise {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  border: 1px solid #b9e2d8;
+  border-radius: 999px;
+  background: #effaf7;
+  color: var(--primary-dark);
+  font-size: 10px;
+  font-weight: 850;
+}
+.vehicle-finder-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+.vehicle-field { display: flex; flex-direction: column; gap: 6px; }
+.vehicle-field > span { color: #43566b; font-size: 10px; font-weight: 850; letter-spacing: .03em; }
+.vehicle-field select, .vehicle-field input {
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  padding: 0 13px;
+  border: 1px solid #d8e1e6;
+  border-radius: 11px;
+  outline: 0;
+  background: #f8fafb;
+  font-size: 13px;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+.vehicle-field select:focus, .vehicle-field input:focus {
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(0,167,137,.11);
+}
+.vehicle-field select:disabled { cursor: not-allowed; color: #98a5b0; background: #f0f3f5; }
+.vehicle-advanced {
+  margin-top: 14px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 13px 0;
+}
+.vehicle-advanced summary {
+  width: max-content;
+  color: var(--primary-dark);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 850;
+}
+.vehicle-advanced > div { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 13px; }
+.vehicle-finder-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 17px;
+}
+.vehicle-finder-actions > div { display: flex; flex-direction: column; }
+.vehicle-finder-actions strong { font-size: 11px; }
+.vehicle-finder-actions > div span { color: var(--muted); font-size: 10px; }
+.vehicle-finder-actions .button { min-width: 230px; gap: 12px; }
+.vehicle-finder-compact {
+  padding: 22px;
+  border-radius: 17px;
+  box-shadow: 0 14px 38px rgba(16,36,62,.07);
+}
+.vehicle-finder-compact .vehicle-finder-heading h2 { font-size: 23px; }
+
+@media (max-width: 900px) {
+  .vehicle-finder-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 620px) {
+  .vehicle-finder-section { padding-bottom: 18px; }
+  .vehicle-finder, .vehicle-finder-compact { padding: 18px 15px; border-radius: 16px; }
+  .vehicle-finder-heading { flex-direction: column; gap: 13px; margin-bottom: 18px; }
+  .vehicle-finder-heading > div { gap: 10px; }
+  .vehicle-step { width: 37px; height: 37px; border-radius: 11px; }
+  .vehicle-finder-heading h2, .vehicle-finder-compact .vehicle-finder-heading h2 { font-size: 22px; }
+  .vehicle-finder-heading p { font-size: 11px; }
+  .fitment-promise { margin-inline-start: 47px; }
+  .vehicle-finder-grid { grid-template-columns: 1fr; gap: 11px; }
+  .vehicle-field select, .vehicle-field input { height: 50px; font-size: 14px; }
+  .vehicle-advanced > div { grid-template-columns: 1fr; }
+  .vehicle-finder-actions { align-items: stretch; flex-direction: column; }
+  .vehicle-finder-actions .button { width: 100%; min-width: 0; min-height: 50px; }
+}

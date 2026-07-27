@@ -4,6 +4,7 @@ import { garage } from "@/lib/mock-data";
 import { dictionary, getLocale } from "@/lib/i18n";
 import { ProductCard } from "@/components/product-card";
 import { GarageSelector } from "@/components/garage-selector";
+import { VehicleFinder } from "@/components/vehicle-finder";
 import { searchMarketplaceProducts } from "@/lib/repositories/products";
 
 const categories = [
@@ -51,6 +52,12 @@ export default async function Home() {
           <div className="scan-card scan-price"><small>{ar ? "السعر المقترح" : "Suggested price"}</small><strong>AED 850–920</strong></div>
           <div className="hero-orbit orbit-one" />
           <div className="hero-orbit orbit-two" />
+        </div>
+      </section>
+
+      <section className="vehicle-finder-section">
+        <div className="page-shell">
+          <VehicleFinder locale={locale} />
         </div>
       </section>
 

@@ -9,6 +9,14 @@ export interface ProductSearch {
   compatibility?: string;
   verified?: boolean;
   sort?: string;
+  make?: string;
+  model?: string;
+  year?: string;
+  engineSize?: string;
+  fuelType?: string;
+  engineType?: string;
+  trim?: string;
+  vin?: string;
 }
 
 interface ProductRow {
@@ -58,6 +66,22 @@ const visualByCategory: Record<string, Product["visual"]> = {
 
 const productSelect = "id,slug,title_en,title_ar,description_en,description_ar,oem_number,condition,grade,price_minor,currency,warranty_days,defects,categories(name_en),seller_profiles(id,display_name,city,verification_status,rating,completed_orders,stripe_account_id),product_fitments(make,model,year_from,year_to,engine,trim,status),product_images(storage_path,sort_order)";
 
+function includesDetail(haystack: string, value: string | undefined, knownValues: RegExp) {
+  if (!value) return true;
+  const normalized = value.toLowerCase();
+  if (haystack.includes(normalized)) return true;
+  return !knownValues.test(haystack);
+}
+
+function includesYear(haystack: string, value: string | undefined) {
+  if (!value) return true;
+  const selectedYear = Number(value);
+  if (!Number.isFinite(selectedYear)) return true;
+  const ranges = [...haystack.matchAll(/(\d{4})\s*[–-]\s*(\d{4})/g)];
+  if (!ranges.length) return !/\b(19|20)\d{2}\b/.test(haystack) || haystack.includes(value);
+  return ranges.some((range) => selectedYear >= Number(range[1]) && selectedYear <= Number(range[2]));
+}
+
 function filterAndSort(source: Product[], filters: ProductSearch) {
   const query = filters.q?.trim().toLowerCase() ?? "";
   const category = filters.category?.toLowerCase() ?? "";
@@ -67,7 +91,14 @@ function filterAndSort(source: Product[], filters: ProductSearch) {
       && (!category || product.category.toLowerCase().includes(category))
       && (!filters.condition || product.condition === filters.condition)
       && (!filters.compatibility || product.compatibility === filters.compatibility)
-      && (!filters.verified || product.seller.verified);
+      && (!filters.verified || product.seller.verified)
+      && (!filters.make || haystack.includes(filters.make.toLowerCase()))
+      && (!filters.model || haystack.includes(filters.model.toLowerCase()))
+      && includesYear(haystack, filters.year)
+      && includesDetail(haystack, filters.engineSize, /\b\d(?:\.\d)?l\b/)
+      && includesDetail(haystack, filters.fuelType, /\b(petrol|diesel|hybrid|electric)\b/)
+      && includesDetail(haystack, filters.engineType, /\b(i3|i4|i6|v6|v8|electric)\b/)
+      && includesDetail(haystack, filters.trim, /\b(exr|gxr|vxr|xe|se|le|nismo|platinum|premier|xlt|lariat|raptor|amg|sport|limited)\b/);
   }).sort((a, b) => {
     if (filters.sort === "price-low") return a.price.amount - b.price.amount;
     if (filters.sort === "price-high") return b.price.amount - a.price.amount;
