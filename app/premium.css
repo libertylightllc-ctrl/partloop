@@ -1786,3 +1786,349 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .product-card .product-visual.compact { min-height: 158px; }
   .card-fit-score { font-size: 7px; }
 }
+
+/* V13 — premium legibility and interface scale */
+:root {
+  --type-micro: 12px;
+  --type-small: 13px;
+  --type-ui: 14px;
+  --type-body: 16px;
+}
+
+body {
+  font-size: var(--type-body);
+  line-height: 1.58;
+}
+
+.trust-strip {
+  min-height: 34px;
+  font-size: var(--type-micro);
+  letter-spacing: .055em;
+}
+
+.top-nav {
+  height: 88px;
+  grid-template-columns: 190px minmax(320px, 1fr) auto;
+  gap: 22px;
+}
+.brand { font-size: 24px; }
+.brand-mark { width: 43px; height: 43px; }
+.nav-search {
+  width: min(100%, 570px);
+  min-height: 56px;
+}
+.nav-search input { font-size: 16px; }
+.nav-search button {
+  min-height: 46px;
+  padding-inline: 22px;
+  font-size: var(--type-ui);
+}
+.nav-actions { gap: 5px; }
+.top-nav .locale-switch,
+.nav-action {
+  min-height: 44px;
+  padding: 9px 11px;
+  font-size: 13px;
+}
+.nav-action { gap: 7px; }
+.nav-action > span { font-size: 15px; }
+.cart-link {
+  min-width: 72px;
+  min-height: 44px;
+  padding: 9px 12px;
+}
+.cart-link > span { font-size: 17px; }
+.cart-link em { font-size: 13px; }
+
+.category-nav {
+  min-height: 56px;
+  justify-content: flex-start;
+  gap: clamp(18px, 1.65vw, 27px);
+  padding-inline: max(24px, calc((100vw - 1240px) / 2));
+}
+.category-nav a {
+  min-height: 55px;
+  font-size: 13px;
+  font-weight: 760;
+}
+.category-nav a::after { bottom: 0; height: 3px; }
+.category-nav .category-sell {
+  min-height: 42px;
+  margin-inline-start: auto;
+  padding-inline: 17px;
+  font-size: var(--type-small);
+  box-shadow: inset 0 0 0 1px rgba(0, 151, 184, .09);
+}
+
+.eyebrow { font-size: var(--type-small); }
+.hero-copy > p { font-size: 17px; }
+.hero-command-tabs button {
+  min-height: 36px;
+  padding: 8px 13px;
+  font-size: var(--type-small);
+}
+.hero-command-tabs button span { font-size: var(--type-micro); }
+.hero-command .hero-search input { font-size: 15px; }
+.hero-command .hero-search button { font-size: var(--type-ui); }
+.hero-command-foot > span,
+.hero-command-foot a { font-size: var(--type-micro); }
+.hero-command-foot a { padding: 6px 10px; }
+.hero-actions .button,
+.hero-actions .text-link { font-size: var(--type-ui); }
+.hero-confidence span { font-size: var(--type-small); }
+.hero-confidence b { font-size: var(--type-micro); }
+.visual-command-head span,
+.visual-command-head b { font-size: 10px; }
+.scan-main strong { font-size: var(--type-micro); }
+.scan-main small,
+.scan-fit small,
+.scan-price small { font-size: var(--type-small); }
+.scan-fit strong,
+.scan-price strong { font-size: 15px; }
+.market-pulse { font-size: var(--type-micro); }
+.market-pulse strong { font-size: var(--type-micro); }
+.fitment-matrix small { font-size: 10px; }
+.fitment-matrix strong { font-size: 13px; }
+
+.vehicle-finder-heading h2 { font-size: 31px; }
+.vehicle-finder-heading p { font-size: 15px; }
+.vehicle-step,
+.fitment-promise { font-size: var(--type-small); }
+.vehicle-flow { font-size: var(--type-micro); }
+.vehicle-field > span,
+.vehicle-field > span small { font-size: var(--type-small); }
+.vehicle-field select,
+.vehicle-field input { font-size: 15px; }
+.vehicle-catalogue-status { font-size: var(--type-small); }
+.vehicle-advanced summary { font-size: 13px; }
+.vehicle-finder-actions strong { font-size: 13px; }
+.vehicle-finder-actions > div span { font-size: var(--type-small); }
+.vehicle-finder-actions .button { font-size: var(--type-ui); }
+.garage-title small { font-size: var(--type-micro); }
+.vehicle-pill > span { font-size: 10px; }
+.vehicle-pill small { font-size: var(--type-small); }
+.add-vehicle { font-size: 13px; }
+
+.precision-intro p,
+.trust-architecture > div > p,
+.precision-steps article p { font-size: 16px; }
+.precision-steps article > span { font-size: var(--type-micro); }
+.precision-steps article > i { font-size: 13px; }
+.proof-grid span { font-size: var(--type-micro); }
+.category-card strong { font-size: 18px; }
+.category-card small { font-size: var(--type-small); }
+.category-card small b { font-size: 15px; }
+
+.grade-badge,
+.verified-mini,
+.condition-label,
+.fit-badge { font-size: var(--type-micro); }
+.product-visual > small { font-size: var(--type-micro); }
+.product-title { font-size: 16px; }
+.product-oem { font-size: var(--type-small); }
+.product-seller-line strong { font-size: var(--type-small); }
+.product-seller-line small { font-size: var(--type-micro); }
+.seller-mini-mark { font-size: var(--type-micro); }
+.card-meta { font-size: var(--type-micro); }
+.card-fit-score { font-size: var(--type-micro); }
+.card-cta { padding-block: 13px 9px; font-size: var(--type-small); }
+
+.section-heading > a,
+.directory-card .button,
+.seller-cta .button { font-size: 13px; }
+.directory-name h3 { font-size: 18px; }
+.directory-name span { font-size: var(--type-micro); }
+.directory-stats span { font-size: var(--type-micro); }
+.directory-stats strong { font-size: 14px; }
+.deal-countdown span { font-size: var(--type-micro); }
+.trust-architecture nav a > b { font-size: var(--type-micro); }
+.trust-architecture nav a > span { font-size: 15px; }
+.trust-architecture nav small { font-size: var(--type-small); }
+
+.search-header p,
+.results-toolbar { font-size: var(--type-ui); }
+.filters > strong { font-size: 19px; }
+.filters > label,
+.filters fieldset,
+.radio-row,
+.sort-form select { font-size: 13px; }
+.filters-heading small { font-size: var(--type-micro); }
+.filter-mobile { font-size: var(--type-ui); }
+
+.breadcrumbs,
+.photo-proof,
+.rating-line { font-size: 13px; }
+.vat-note { font-size: var(--type-small); }
+.detail-confidence span { font-size: var(--type-micro); }
+.fitment-top button,
+.fitment-panel p,
+.protection-note p { font-size: 13px; }
+.spec-grid dt { font-size: var(--type-micro); }
+.spec-grid dd,
+.seller-card p { font-size: 14px; }
+.seller-stats small { font-size: var(--type-micro); }
+.seller-card .button,
+.purchase-actions .button,
+.secondary-purchase-actions button { font-size: var(--type-ui); }
+.offer-guide small,
+.offer-note { font-size: var(--type-small); }
+.chat-header small,
+.chat-product small,
+.chat-messages time { font-size: var(--type-micro); }
+.chat-product > span { font-size: var(--type-micro); }
+.chat-messages p,
+.quick-questions button { font-size: var(--type-small); }
+
+.cart-line > div:nth-child(2) span,
+.cart-line-end button { font-size: var(--type-small); }
+.order-summary > div:not(.summary-product),
+.summary-product div,
+.summary-product div strong { font-size: 13px; }
+.summary-protection { font-size: var(--type-micro); }
+.checkout-steps { font-size: 13px; }
+.number-title p,
+.form-grid label,
+.escrow-explainer p,
+.success-banner p,
+.tracking-top p,
+.order-product-card > div:last-child,
+.protection-card p,
+.help-card p,
+.protection-card > div { font-size: 13px; }
+.mock-card,
+.inspection-clock small,
+.inspection-clock span { font-size: var(--type-micro); }
+.order-timeline time { font-size: var(--type-small); }
+.form-error,
+.auth-error { font-size: var(--type-small); }
+.secure-signin label { font-size: var(--type-small); }
+
+.portal-eyebrow { font-size: var(--type-micro); }
+.portal-sidebar nav a { font-size: var(--type-ui); }
+.back-marketplace { font-size: var(--type-small); }
+.portal-header p { font-size: var(--type-ui); }
+.metric-grid small,
+.metric-grid em,
+.panel-heading p,
+.panel-heading a { font-size: var(--type-micro); }
+.seller-order-row,
+.ai-panel p,
+.wizard-steps li,
+.wizard-heading p,
+.review-preview p,
+.transaction-row div,
+.ops-health div { font-size: 13px; }
+.status-chip,
+.large-status { font-size: var(--type-micro); }
+.health-grid small,
+.photo-guidance,
+.review-tags span,
+.ai-facts small,
+.ai-facts span,
+.seller-confirm,
+.wallet-hero small,
+.wallet-hero span,
+.live-indicator,
+.queue-row,
+.dispute-facts small,
+.recommendation p,
+.recommendation li,
+.decision-card label span,
+.decision-card > small { font-size: var(--type-micro); }
+.decision-card textarea { font-size: 13px; }
+.risk { font-size: var(--type-micro); }
+.inventory-tabs button,
+.bulk-bar,
+.table-select { font-size: var(--type-small); }
+.inventory-tabs span,
+.inventory-head,
+.inventory-product small,
+.price-health small,
+.listing-performance small,
+.listing-status,
+.order-board-summary small,
+.seller-orders-head,
+.moderation-item small,
+.moderation-facts small,
+.approval-details small,
+.business-heading > strong small,
+.verification-checks small { font-size: var(--type-micro); }
+.inventory-row,
+.seller-orders-line,
+.seller-orders-line .button,
+.moderation-item strong,
+.risk-signals > div,
+.review-note,
+.moderation-result { font-size: var(--type-small); }
+
+.legal-meta span,
+.legal-index strong,
+.legal-document > section > span { font-size: var(--type-micro); }
+.legal-index a { font-size: 13px; }
+.legal-document p,
+.legal-priority p { font-size: 15px; }
+.legal-consent { font-size: 13px; }
+
+.site-footer > div { font-size: 14px; }
+
+@media (max-width: 1180px) {
+  .top-nav {
+    grid-template-columns: 178px minmax(270px, 1fr) auto;
+    gap: 12px;
+  }
+  .nav-search button { padding-inline: 16px; }
+  .top-nav .locale-switch,
+  .nav-action { padding-inline: 8px; font-size: var(--type-small); }
+  .category-nav { gap: 18px; }
+  .category-nav a { font-size: var(--type-small); }
+}
+
+@media (max-width: 900px) {
+  .nav-action { min-width: 42px; justify-content: center; }
+  .top-nav .locale-switch { font-size: var(--type-micro); }
+  .hero-confidence span { font-size: var(--type-micro); }
+}
+
+@media (max-width: 780px) {
+  .top-nav {
+    height: 76px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+  .brand { font-size: 20px; }
+  .brand-mark { width: 38px; height: 38px; }
+  .nav-search { min-height: 48px; }
+  .nav-search input { font-size: 14px; }
+  .nav-search button { min-height: 40px; padding-inline: 14px; font-size: var(--type-small); }
+  .hero-copy > p { font-size: 15px; }
+  .hero-command-tabs button { font-size: var(--type-micro); }
+  .hero-command .hero-search input { font-size: 13px; }
+  .hero-command .hero-search button { font-size: var(--type-small); }
+  .hero-confidence span { font-size: var(--type-micro); }
+  .fitment-matrix small { font-size: 10px; }
+  .fitment-matrix strong { font-size: var(--type-micro); }
+  .vehicle-finder-heading p { font-size: 13px; }
+  .vehicle-field > span,
+  .vehicle-field > span small { font-size: var(--type-micro); }
+  .flagship-products { gap: 13px; }
+  .product-title { font-size: 14px; }
+  .product-oem { font-size: var(--type-micro); }
+  .product-card-body { padding: 14px; }
+  .mobile-nav a { font-size: var(--type-micro); }
+  .mobile-nav a > span { font-size: 22px; }
+}
+
+@media (max-width: 480px) {
+  .top-nav { gap: 8px; padding-inline: 10px; }
+  .brand > span:last-child { display: none; }
+  .nav-search button { padding-inline: 11px; }
+  .hero-command .hero-search input { font-size: var(--type-small); }
+  .hero-confidence span { font-size: 11px; }
+  .category-card strong { font-size: 15px; }
+  .category-card small { font-size: var(--type-micro); }
+  .product-title { min-height: 39px; font-size: 13px; }
+  .grade-badge,
+  .verified-mini,
+  .fit-badge { font-size: var(--type-micro); }
+  .card-meta { font-size: var(--type-micro); }
+  .card-fit-score { font-size: var(--type-micro); }
+}
