@@ -2515,3 +2515,82 @@ body {
     font-size: 7px;
   }
 }
+
+/* V26 — exact approved PartsLoop header lockup */
+.top-nav {
+  grid-template-columns: 230px minmax(320px, 1fr) auto;
+}
+.brand {
+  width: 210px;
+  height: 58px;
+  max-width: 100%;
+  gap: 0;
+  filter: none;
+}
+.brand-approved-lockup {
+  display: block;
+  width: 210px;
+  height: 58px;
+  flex: 0 0 210px;
+  background-image: url("/partsloop-approved-header-lockup.png");
+  background-repeat: no-repeat;
+  background-position: 50% 35%;
+  background-size: 300px 112px;
+  transition: transform .2s ease;
+}
+.brand:hover .brand-approved-lockup {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1180px) {
+  .top-nav {
+    grid-template-columns: 210px minmax(270px, 1fr) auto;
+  }
+  .brand,
+  .brand-approved-lockup {
+    width: 195px;
+  }
+  .brand {
+    height: 54px;
+  }
+  .brand-approved-lockup {
+    height: 54px;
+    flex-basis: 195px;
+    background-size: 278px 104px;
+  }
+}
+
+@media (max-width: 780px) {
+  .top-nav {
+    height: auto;
+    min-height: 76px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+  .brand,
+  .brand-approved-lockup {
+    width: 170px;
+  }
+  .brand {
+    height: 48px;
+  }
+  .brand-approved-lockup {
+    height: 48px;
+    flex-basis: 170px;
+    background-size: 243px 91px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand,
+  .brand-approved-lockup {
+    width: 145px;
+  }
+  .brand {
+    height: 42px;
+  }
+  .brand-approved-lockup {
+    height: 42px;
+    flex-basis: 145px;
+    background-size: 207px 77px;
+  }
+}
