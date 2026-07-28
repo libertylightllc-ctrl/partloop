@@ -2594,3 +2594,47 @@ body {
     background-size: 207px 77px;
   }
 }
+
+/* V27 — guaranteed rendered approved logo image */
+.brand-approved-lockup {
+  position: relative;
+  overflow: hidden;
+  background-image: none;
+}
+.brand-approved-lockup > img {
+  position: absolute;
+  top: -19px;
+  left: -45px;
+  display: block;
+  width: 300px;
+  height: 112px;
+  max-width: none;
+  object-fit: fill;
+}
+
+@media (max-width: 1180px) {
+  .brand-approved-lockup > img {
+    top: -18px;
+    left: -42px;
+    width: 278px;
+    height: 104px;
+  }
+}
+
+@media (max-width: 780px) {
+  .brand-approved-lockup > img {
+    top: -15px;
+    left: -37px;
+    width: 243px;
+    height: 91px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-approved-lockup > img {
+    top: -13px;
+    left: -31px;
+    width: 207px;
+    height: 77px;
+  }
+}
