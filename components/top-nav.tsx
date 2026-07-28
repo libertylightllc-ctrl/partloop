@@ -17,11 +17,8 @@ export function TopNav({ locale }: { locale: Locale }) {
       </div>
       <header className="top-nav">
         <Link href="/" className="brand" aria-label="PartsLoop home">
-          <img
-            className="brand-wordmark-image"
-            src="/partsloop-header-wordmark.png"
-            alt="PartsLoop"
-          />
+          <span className="brand-mark">P</span>
+          <span>Parts<span>Loop</span></span>
         </Link>
         <form action="/search" className="nav-search">
           <span aria-hidden="true">⌕</span>
