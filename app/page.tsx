@@ -47,9 +47,39 @@ export default async function Home() {
           <p>{ar ? "سياق المركبة ورقم OEM وحالة القطعة ومسؤولية البائع والدفع المحمي في تدفق واحد." : "Vehicle context, OEM evidence, seller accountability and protected checkout—connected in one clear flow."}</p>
         </div>
         <div className="precision-steps">
-          <article><span>01</span><i>VIN</i><h3>{ar ? "حدد المركبة" : "Identify the vehicle"}</h3><p>{ar ? "اختر السنة والماركة والطراز والفئة والمحرك، أو استخدم دليل OEM وVIN." : "Select year, make, model, variant and engine—or use OEM and VIN evidence."}</p></article>
-          <article><span>02</span><i>OEM</i><h3>{ar ? "تحقق من الدليل" : "Verify the evidence"}</h3><p>{ar ? "راجع الحالة والصور ورقم القطعة والبائع المسؤول." : "Review condition, multi-angle photos, part number and the accountable seller."}</p></article>
-          <article><span>03</span><i>48H</i><h3>{ar ? "اشترِ بحماية" : "Transact with protection"}</h3><p>{ar ? "الدفع المحمي وفترة الفحص ومسار النزاع موضحة منذ البداية." : "Protected payment, a visible inspection window and a defined dispute path."}</p></article>
+          <article className="precision-step-card">
+            <figure className="precision-step-media">
+              <img src="/precision/identify-vehicle-3d-v1.png" alt={ar ? "تصور ثلاثي الأبعاد لمسح مركبة وتحديدها" : "3D vehicle identification and fitment scan"} loading="lazy" />
+              <span aria-hidden="true" />
+            </figure>
+            <div className="precision-step-copy">
+              <div className="precision-step-meta"><span>01</span><i>VIN</i></div>
+              <h3>{ar ? "حدد المركبة" : "Identify the vehicle"}</h3>
+              <p>{ar ? "اختر السنة والماركة والطراز والفئة والمحرك، أو استخدم دليل OEM وVIN." : "Select year, make, model, variant and engine—or use OEM and VIN evidence."}</p>
+            </div>
+          </article>
+          <article className="precision-step-card">
+            <figure className="precision-step-media">
+              <img src="/precision/verify-oem-evidence-3d-v1.png" alt={ar ? "تصور ثلاثي الأبعاد لفحص قطعة ورقم OEM" : "3D OEM evidence and component inspection"} loading="lazy" />
+              <span aria-hidden="true" />
+            </figure>
+            <div className="precision-step-copy">
+              <div className="precision-step-meta"><span>02</span><i>OEM</i></div>
+              <h3>{ar ? "تحقق من الدليل" : "Verify the evidence"}</h3>
+              <p>{ar ? "راجع الحالة والصور ورقم القطعة والبائع المسؤول." : "Review condition, multi-angle photos, part number and the accountable seller."}</p>
+            </div>
+          </article>
+          <article className="precision-step-card">
+            <figure className="precision-step-media">
+              <img src="/precision/protected-transaction-3d-v1.png" alt={ar ? "تصور ثلاثي الأبعاد لحماية الدفع وفترة الفحص" : "3D protected transaction and inspection window"} loading="lazy" />
+              <span aria-hidden="true" />
+            </figure>
+            <div className="precision-step-copy">
+              <div className="precision-step-meta"><span>03</span><i>48H</i></div>
+              <h3>{ar ? "اشترِ بحماية" : "Transact with protection"}</h3>
+              <p>{ar ? "الدفع المحمي وفترة الفحص ومسار النزاع موضحة منذ البداية." : "Protected payment, a visible inspection window and a defined dispute path."}</p>
+            </div>
+          </article>
         </div>
       </section>
 
