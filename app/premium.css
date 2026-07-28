@@ -2282,3 +2282,163 @@ body {
   .brand { font-size: 21px; }
   .brand-mark { width: 39px; height: 39px; }
 }
+
+/* V20 — high-contrast premium header typography */
+.top-nav {
+  grid-template-columns: 235px minmax(320px, 1fr) auto;
+}
+.brand {
+  gap: 11px;
+  color: #061728;
+  font-family: "Segoe UI Variable Display", "Aptos Display", "Arial Black", sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -.055em;
+  filter: none;
+}
+.brand > span:last-child {
+  color: #071827;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: currentColor;
+  text-shadow: 0 1px 0 #fff, 0 2px 2px rgba(4, 18, 30, .16);
+}
+.brand > span:last-child > span {
+  color: #009fdf;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: currentColor;
+  text-shadow:
+    0 1px 0 #d9f8ff,
+    0 2px 0 #006fae,
+    0 4px 8px rgba(0, 146, 210, .2);
+}
+.brand-mark {
+  width: 50px;
+  height: 50px;
+  flex: 0 0 50px;
+  border: 2px solid #f1b83f;
+  font-family: "Segoe UI Variable Display", "Arial Black", sans-serif;
+  font-size: 27px;
+  font-weight: 950;
+  line-height: 1;
+  transform: none;
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255,255,255,.9) 0 4%, transparent 5%),
+    linear-gradient(145deg, #28d8ef 0%, #008bab 42%, #00516d 70%, #021923 100%);
+  box-shadow:
+    inset 0 2px 4px rgba(255,255,255,.58),
+    inset 0 -7px 11px rgba(0,10,18,.62),
+    0 0 0 2px #073246,
+    0 0 0 4px rgba(238,181,61,.45),
+    0 8px 18px rgba(0,120,158,.22);
+  text-shadow: 0 1px 0 #fff, 0 3px 3px rgba(0,29,43,.62);
+}
+.brand:hover .brand-mark {
+  transform: translateY(-1px);
+}
+
+.nav-search input {
+  color: #26394a;
+  font-size: 16px;
+  font-weight: 520;
+  letter-spacing: -.012em;
+}
+.nav-search input::placeholder {
+  color: #667584;
+  opacity: 1;
+}
+.nav-search button {
+  min-width: 96px;
+  font-family: "Segoe UI Variable Display", "Aptos Display", sans-serif;
+  font-size: 15px;
+  font-weight: 850;
+  letter-spacing: -.015em;
+}
+.nav-actions {
+  color: #10293b;
+  font-family: "Segoe UI Variable Display", "Aptos Display", sans-serif;
+  font-size: 14px;
+  font-weight: 780;
+}
+.top-nav .locale-switch,
+.nav-action,
+.cart-link {
+  color: #10293b;
+  font-size: 14px;
+  font-weight: 780;
+  letter-spacing: -.015em;
+}
+.top-nav .locale-switch {
+  min-width: 62px;
+  border-color: #d5e0e6;
+  box-shadow: 0 3px 10px rgba(5,31,48,.04);
+}
+.nav-action > span,
+.cart-link > span {
+  color: #00a9d4;
+  font-weight: 900;
+}
+.cart-link em {
+  color: #10293b;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+@media (max-width: 1180px) {
+  .top-nav {
+    grid-template-columns: 205px minmax(270px, 1fr) auto;
+  }
+  .brand { font-size: 24px; }
+  .brand-mark {
+    width: 45px;
+    height: 45px;
+    flex-basis: 45px;
+    font-size: 24px;
+  }
+  .top-nav .locale-switch,
+  .nav-action,
+  .cart-link,
+  .cart-link em { font-size: 13px; }
+}
+
+@media (max-width: 780px) {
+  .top-nav {
+    height: auto;
+    min-height: 76px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+  .brand {
+    gap: 8px;
+    font-size: 21px;
+  }
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand {
+    gap: 7px;
+    font-size: 17px;
+    letter-spacing: -.045em;
+  }
+  .brand > span:last-child {
+    display: inline;
+  }
+  .brand-mark {
+    width: 37px;
+    height: 37px;
+    flex-basis: 37px;
+    font-size: 20px;
+  }
+  .nav-search button {
+    min-width: 82px;
+    font-size: 13px;
+  }
+}
