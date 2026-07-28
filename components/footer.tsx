@@ -6,7 +6,12 @@ export function Footer({ locale }: { locale: Locale }) {
   return (
     <footer className="site-footer">
       <div>
-        <span className="brand footer-brand"><span className="brand-mark">P</span>PartsLoop</span>
+        <span className="brand footer-brand" aria-label="PartsLoop">
+          <span className="brand-mark" aria-hidden="true">P</span>
+          <span className="brand-wordmark" aria-hidden="true">
+            <span className="brand-parts">Parts</span><span className="brand-loop">Loop</span>
+          </span>
+        </span>
         <p>{ar ? "سوق موثوق لقطع السيارات في الشرق الأوسط." : "A trusted auto-parts marketplace built for the Middle East."}</p>
       </div>
       <div>
