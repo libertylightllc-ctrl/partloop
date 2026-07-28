@@ -5,7 +5,7 @@ import type { Locale } from "@partsloop/contracts";
 import { dictionary } from "@/lib/i18n";
 import { LocaleSwitch } from "./locale-switch";
 import { useCart } from "./cart-provider";
-import approvedHeaderLockupUrl from "./assets/partsloop-approved-header-lockup.png";
+import approvedHeaderLockupDataUrl from "./assets/partsloop-approved-header-lockup.png?inline";
 
 export function TopNav({ locale }: { locale: Locale }) {
   const t = dictionary[locale];
@@ -19,7 +19,7 @@ export function TopNav({ locale }: { locale: Locale }) {
       <header className="top-nav">
         <Link href="/" className="brand" aria-label="PartsLoop home">
           <span className="brand-approved-lockup" aria-hidden="true">
-            <img src={approvedHeaderLockupUrl} alt="" />
+            <img src={approvedHeaderLockupDataUrl} alt="" />
           </span>
         </Link>
         <form action="/search" className="nav-search">
