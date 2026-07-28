@@ -18,7 +18,10 @@ export function TopNav({ locale }: { locale: Locale }) {
       <header className="top-nav">
         <Link href="/" className="brand" aria-label="PartsLoop home">
           <span className="brand-mark">P</span>
-          <span>Parts<span>Loop</span></span>
+          <span className="brand-wordmark">
+            <span className="brand-parts">Parts</span>
+            <span className="brand-loop">Loop</span>
+          </span>
         </Link>
         <form action="/search" className="nav-search">
           <span aria-hidden="true">⌕</span>
