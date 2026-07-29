@@ -3892,3 +3892,520 @@ a, button, input, select, textarea { -webkit-tap-highlight-color: transparent; }
     transition: none;
   }
 }
+
+/* V35 — professional homepage sizing, rhythm and responsive audit */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img {
+  max-width: 100%;
+}
+
+main > .page-shell,
+main > section > .page-shell,
+.garage-inner {
+  width: min(1280px, calc(100% - 48px));
+}
+
+.trust-strip {
+  min-height: 30px;
+  padding-block: 6px;
+}
+
+.top-nav {
+  min-height: 78px;
+  height: auto;
+}
+
+.category-nav {
+  min-height: 52px;
+}
+
+.category-nav a {
+  min-height: 51px;
+}
+
+.category-nav .category-sell {
+  min-height: 40px;
+}
+
+.full-brand-hero {
+  height: clamp(380px, 34vw, 445px);
+}
+
+.full-brand-hero img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: center 50%;
+}
+
+.full-brand-hero + .vehicle-finder-section {
+  padding: 24px 0 38px;
+  background: linear-gradient(180deg, #061824 0, #061824 116px, #f4f7f8 116px);
+}
+
+.vehicle-finder {
+  max-width: 1280px;
+  padding: clamp(28px, 2.7vw, 36px);
+}
+
+.vehicle-finder-heading {
+  margin-bottom: 22px;
+}
+
+.vehicle-finder-heading h2 {
+  font-size: clamp(30px, 2.6vw, 38px);
+}
+
+.vehicle-field select,
+.vehicle-field input {
+  min-height: 54px;
+}
+
+.vehicle-finder-actions {
+  padding-top: 18px;
+}
+
+.garage-inner {
+  min-height: 106px;
+}
+
+.precision-journey {
+  margin-block: clamp(68px, 6.5vw, 88px) 24px;
+}
+
+.precision-intro h2,
+.trust-architecture h2 {
+  font-size: clamp(38px, 4vw, 52px);
+  line-height: 1.03;
+}
+
+.precision-intro p,
+.trust-architecture > div > p {
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.precision-steps {
+  gap: 18px;
+}
+
+.precision-steps .precision-step-card,
+.precision-step-media {
+  min-height: 218px;
+}
+
+.proof-grid > div {
+  padding-block: 19px;
+}
+
+.proof-grid strong {
+  font-size: clamp(24px, 2.2vw, 31px);
+}
+
+main > .page-shell.section {
+  padding-block: clamp(68px, 6.5vw, 86px);
+}
+
+.category-showcase {
+  padding-top: clamp(68px, 6.5vw, 82px);
+}
+
+.section-heading {
+  margin-bottom: 28px;
+}
+
+.section-heading h2,
+.category-showcase .section-heading h2 {
+  font-size: clamp(37px, 3.6vw, 50px);
+}
+
+.section-heading-note {
+  max-width: 590px;
+  font-size: 15.5px;
+}
+
+.category-showcase .category-grid,
+.product-grid {
+  gap: 18px;
+}
+
+.category-showcase .category-card {
+  min-height: 276px;
+}
+
+.product-card .product-visual.compact {
+  min-height: 218px;
+}
+
+.product-card-body {
+  padding: 19px;
+}
+
+.deal-section {
+  padding-top: 30px;
+  padding-bottom: clamp(66px, 6vw, 82px);
+}
+
+.deal-banner {
+  min-height: 286px;
+  padding: clamp(32px, 3.2vw, 42px);
+}
+
+.seller-directory {
+  padding-top: clamp(64px, 6vw, 78px);
+}
+
+.directory-card {
+  min-height: 286px;
+  padding: 24px;
+}
+
+.trust-architecture {
+  margin-block: 4px clamp(70px, 7vw, 94px);
+  padding: clamp(34px, 4.2vw, 54px);
+}
+
+.seller-cta {
+  margin-top: 0;
+  padding-block: clamp(48px, 5vw, 64px);
+}
+
+.seller-cta h2 {
+  font-size: clamp(34px, 4vw, 50px);
+  line-height: 1.04;
+}
+
+.site-footer {
+  padding-block: clamp(54px, 6vw, 68px);
+}
+
+@media (max-width: 1180px) {
+  main > .page-shell,
+  main > section > .page-shell,
+  .garage-inner {
+    width: min(100% - 36px, 1180px);
+  }
+
+  .full-brand-hero {
+    height: clamp(350px, 36vw, 415px);
+  }
+
+  .category-showcase .category-card {
+    min-height: 276px;
+  }
+
+  .product-card .product-visual.compact {
+    min-height: 202px;
+  }
+}
+
+@media (max-width: 900px) {
+  .full-brand-hero {
+    height: auto;
+  }
+
+  .full-brand-hero img {
+    height: auto;
+    aspect-ratio: 1734 / 907;
+    object-fit: contain;
+  }
+
+  .vehicle-finder-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .precision-journey {
+    margin-top: 64px;
+  }
+
+  .precision-steps .precision-step-card {
+    grid-template-columns: minmax(210px, .84fr) minmax(0, 1.16fr);
+  }
+
+  .category-showcase .category-card {
+    min-height: 264px;
+  }
+
+  .seller-directory-grid {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 780px) {
+  body {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+
+  main > .page-shell,
+  main > section > .page-shell,
+  .garage-inner {
+    width: min(100% - 28px, 720px);
+  }
+
+  .top-nav {
+    min-height: 0;
+    padding: 10px 14px 12px;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .nav-actions {
+    width: auto;
+    justify-self: end;
+  }
+
+  .nav-search {
+    width: 100%;
+    max-width: none;
+  }
+
+  .nav-search input,
+  .vehicle-field select,
+  .vehicle-field input {
+    font-size: 16px;
+  }
+
+  .full-brand-hero img {
+    min-height: 0;
+  }
+
+  .full-brand-hero + .vehicle-finder-section {
+    padding: 16px 0 30px;
+    background: linear-gradient(180deg, #061824 0, #061824 82px, #f4f7f8 82px);
+  }
+
+  .vehicle-finder {
+    padding: 24px 20px;
+  }
+
+  .vehicle-finder-heading h2 {
+    font-size: clamp(27px, 6vw, 32px);
+  }
+
+  .garage-inner {
+    min-height: 0;
+    padding-block: 18px;
+  }
+
+  .precision-journey {
+    margin-block: 56px 22px;
+  }
+
+  .precision-intro h2,
+  .trust-architecture h2 {
+    font-size: clamp(34px, 7vw, 41px);
+  }
+
+  .precision-steps .precision-step-card {
+    min-height: 212px;
+    grid-template-columns: minmax(188px, .78fr) minmax(0, 1.22fr);
+  }
+
+  .precision-step-media {
+    min-height: 212px;
+  }
+
+  .proof-grid > div {
+    min-height: 88px;
+    display: grid;
+    align-content: center;
+  }
+
+  main > .page-shell.section,
+  .category-showcase {
+    padding-block: 58px;
+  }
+
+  .section-heading {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .section-heading h2,
+  .category-showcase .section-heading h2 {
+    font-size: clamp(34px, 7vw, 40px);
+  }
+
+  .category-showcase .category-card {
+    min-height: 250px;
+  }
+
+  .product-card .product-visual.compact {
+    min-height: 184px;
+  }
+
+  .deal-section {
+    padding-top: 18px;
+    padding-bottom: 58px;
+  }
+
+  .deal-banner {
+    min-height: 0;
+    padding: 30px 24px;
+  }
+
+  .directory-card {
+    min-height: 0;
+  }
+
+  .trust-architecture {
+    margin-bottom: 64px;
+    padding: 32px 26px;
+  }
+
+  .seller-cta {
+    padding-block: 48px;
+  }
+
+  .mobile-nav a {
+    min-height: 58px;
+  }
+}
+
+@media (max-width: 620px) {
+  .vehicle-finder-grid,
+  .vehicle-variant-row,
+  .vehicle-advanced > div {
+    grid-template-columns: 1fr;
+  }
+
+  .vehicle-finder-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .vehicle-finder-actions .button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .precision-steps .precision-step-card {
+    grid-template-columns: 1fr;
+  }
+
+  .precision-step-media {
+    min-height: 218px;
+  }
+
+  .category-showcase .category-card {
+    min-height: 246px;
+  }
+}
+
+@media (max-width: 480px) {
+  main > .page-shell,
+  main > section > .page-shell,
+  .garage-inner {
+    width: calc(100% - 24px);
+  }
+
+  .top-nav {
+    padding-inline: 12px;
+  }
+
+  .brand .brand-wordmark {
+    font-size: 18px;
+  }
+
+  .full-brand-hero {
+    min-height: 0;
+  }
+
+  .full-brand-hero img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .vehicle-finder {
+    padding: 22px 16px;
+    border-radius: 22px;
+  }
+
+  .vehicle-finder-heading h2 {
+    font-size: 27px;
+  }
+
+  .vehicle-finder-heading p,
+  .precision-intro p,
+  .trust-architecture > div > p {
+    font-size: 14px;
+  }
+
+  .precision-journey {
+    margin-top: 50px;
+  }
+
+  .precision-intro h2,
+  .trust-architecture h2,
+  .section-heading h2,
+  .category-showcase .section-heading h2 {
+    font-size: clamp(31px, 9vw, 36px);
+  }
+
+  .precision-step-media {
+    min-height: 205px;
+  }
+
+  .precision-step-copy {
+    padding: 23px 20px 26px;
+  }
+
+  .precision-steps .precision-step-card p {
+    font-size: 14px;
+  }
+
+  main > .page-shell.section,
+  .category-showcase {
+    padding-block: 52px;
+  }
+
+  .category-showcase .category-card {
+    min-height: 238px;
+  }
+
+  .category-showcase .category-card-copy p {
+    font-size: 13px;
+  }
+
+  .product-card .product-visual.compact {
+    min-height: 158px;
+  }
+
+  .product-card-body {
+    padding: 15px;
+  }
+
+  .deal-banner {
+    padding: 27px 20px;
+    border-radius: 25px;
+  }
+
+  .deal-copy h2 {
+    font-size: 31px;
+  }
+
+  .deal-countdown {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .deal-countdown > div {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .trust-architecture {
+    padding: 28px 20px;
+    border-radius: 26px;
+  }
+
+  .seller-cta h2 {
+    font-size: 33px;
+  }
+}
