@@ -93,20 +93,37 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="page-shell section">
+      <section className="page-shell section category-showcase">
         <div className="section-heading">
-          <div><span className="eyebrow">{ar ? "ابدأ هنا" : "START HERE"}</span><h2>{ar ? "تسوق حسب الفئة" : "Shop by category"}</h2></div>
+          <div>
+            <span className="eyebrow">{ar ? "ابدأ هنا" : "START HERE"}</span>
+            <h2>{ar ? "تسوق حسب الفئة" : "Shop by category"}</h2>
+            <p className="section-heading-note">{ar ? "ثمانية أنظمة متخصصة. معيار واحد للتوافق الموثق." : "Eight specialist systems. One verified-fit standard."}</p>
+          </div>
           <Link href="/search">{ar ? "عرض الكل ←" : "View all →"}</Link>
         </div>
         <div className="category-grid">
-          {categories.map((category) => (
-            <Link href={`/search?category=${category.query}`} key={category.label} className="category-card">
-              <img className="category-card-media" src={category.image} alt="" loading="lazy" />
+          {categories.map((category, index) => (
+            <Link
+              href={`/search?category=${category.query}`}
+              key={category.label}
+              className="category-card"
+              aria-label={`${ar ? category.ar : category.label} — ${category.count}`}
+            >
+              <img
+                className="category-card-media"
+                src={category.image}
+                alt={ar ? `عرض ثلاثي الأبعاد لفئة ${category.ar}` : `Premium 3D ${category.label.toLowerCase()} component`}
+                loading="lazy"
+              />
               <span className="category-card-shine" aria-hidden="true" />
+              <span className="category-card-frame" aria-hidden="true" />
               <div className="category-card-copy">
+                <span className="category-card-kicker"><b>{String(index + 1).padStart(2, "0")}</b>{ar ? "فئة القطع" : "PARTS SYSTEM"}</span>
                 <strong>{ar ? category.ar : category.label}</strong>
-                <small>{ar ? "استكشف القطع" : category.count} <b>→</b></small>
+                <small>{category.count}</small>
                 <p>{ar ? category.descriptionAr : category.description}</p>
+                <span className="category-card-cta">{ar ? "استكشف المجموعة" : "Explore collection"} <i>→</i></span>
               </div>
               <span className="category-card-arrow" aria-hidden="true">↗</span>
             </Link>
