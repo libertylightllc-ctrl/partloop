@@ -6,11 +6,12 @@
     "packages/*"
   ],
   "engines": {
-    "node": ">=22.13.0"
+    "node": "22.x"
   },
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build",
+    "build:vercel": "next build --webpack",
     "start": "vinext start",
     "test": "node --test tests/domain.test.ts",
     "check": "npm run test && npm run lint && npm run build",
