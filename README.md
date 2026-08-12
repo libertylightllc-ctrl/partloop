@@ -1,4 +1,57 @@
-# PartsLoop
+# PartsLoop Marketplace
+
+PartsLoop is a bilingual, mobile-first automotive-parts marketplace for the
+Middle East. This repository contains the approved V35 web platform, seller and
+admin workspaces, shared contracts, the mobile application source, and the
+existing OpenAI Sites production configuration.
+
+## Current release
+
+- Git source: `https://github.com/libertylightllc-ctrl/partloop`
+- Production: `https://partsloop-marketplace-mvp.libertylightllc.chatgpt.site`
+- Runtime: Node.js 22.13+, Vinext/Vite, React 19, Cloudflare Workers
+- Default mode: local demo data with mock payments and logistics
+
+## Quick start
+
+```bash
+git clone https://github.com/libertylightllc-ctrl/partloop.git
+cd partloop
+cp .env.example .env.local
+npm ci
+npm run dev
+```
+
+Before pushing a release, run:
+
+```bash
+npm run check
+```
+
+This runs the domain tests, lint checks, and the production build.
+
+## Publish to the existing OpenAI Sites project
+
+The repository already contains `.openai/hosting.json` with the existing
+PartsLoop project ID. Keep that file unchanged so a release updates the current
+production URL instead of creating a second site.
+
+1. Push the approved source to the repository's `main` branch.
+2. Open the repository in Codex with the Sites plugin enabled.
+3. Ask Codex: `Deploy the current main branch to the existing Sites project.`
+4. Codex will build, package, save a version, deploy it, and wait for the final
+   production status.
+
+Do not commit `.env.local`, provider secrets, service-role keys, or source
+repository credentials. Configure production values through Sites environment
+settings.
+
+## Launch readiness
+
+The current repository is deployable in demo mode. Before accepting real
+transactions, complete the payment-provider, logistics, Supabase, authoritative
+fitment-data, legal, security, monitoring, and operational items in the
+Production checklist below.
 
 Production-oriented MVP for a Middle East marketplace for new, used, and
 refurbished auto parts. The experience is familiar to mainstream regional
