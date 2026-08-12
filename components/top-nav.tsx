@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { Locale } from "@partsloop/contracts";
-import { dictionary } from "@/lib/i18n";
+import { dictionary } from "@/lib/dictionary";
 import { LocaleSwitch } from "./locale-switch";
 import { useCart } from "./cart-provider";
 
